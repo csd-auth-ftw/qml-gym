@@ -1,6 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MainForm.ui.qml</file>
+        <file>AddPostView.qml</file>
+        <file>CustomToolbar.qml</file>
+        <file>Separator.qml</file>
+        <file>Workouts.qml</file>
+        <file>icons/add_black.png</file>
+        <file>icons/back_black.png</file>
     </qresource>
 </RCC>
