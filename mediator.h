@@ -27,9 +27,10 @@ signals:
     void postModelChanged();
 
 public slots:
-    void insertPost(QString title, QString content, quint16 reaction, QList<QUrl> photos);
-    void editPost(int index, QString title, QString content, quint16 reaction, QList<QUrl> photos);
+    void insertPost(QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos);
+    void editPost(int index, QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos);
     void deletePost(int index);
+    void saveAll();
 };
 
 #endif // MEDIATOR_H

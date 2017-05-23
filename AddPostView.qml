@@ -1,10 +1,14 @@
 import QtQuick 2.0
+import QtQuick 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Styles 1.4
+import QtQuick.Dialogs 1.1
 
 Rectangle {
     id: rootRectangle
     anchors.fill: parent
+    property var photos : [];
 
     CustomToolbar {
         id: mainToolBar
@@ -43,7 +47,7 @@ Rectangle {
         Flickable {
             anchors.fill: parent
             contentWidth: parent.width
-            contentHeight: colForm.height
+            contentHeight: formWrapper.height + 40
             interactive: true
             boundsBehavior: Flickable.StopAtBounds
 
@@ -53,10 +57,162 @@ Rectangle {
                 spacing: 10
 
                 Column {
+                    id: photosGroup
+                    width: parent.width
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    FileDialog {
+                        id: photosDialog
+                        nameFilters: [ "Image files (*.jpg *.png)"]
+                        title: "Please choose a file"
+                        folder: shortcuts.pictures
+                        selectFolder: false
+                        selectMultiple: true
+                        selectExisting: true
+
+                        onAccepted: {
+                            if (this.fileUrls.length < 1)
+                                return;
+
+                            for (var i = 0; i < this.fileUrls.length; i++){
+                                var photoUrl = this.fileUrls[i];
+                                rootRectangle.photos.push(Qt.resolvedUrl(photoUrl));
+                                photosModel.append({"icon": photoUrl});
+                                photosPathView.visible = true
+                            }
+
+                            photosDialog.close();
+                        }
+
+                        onRejected: {
+                            photosDialog.close();
+                        }
+
+                        Component.onCompleted: visible = false
+                    }
+
+                    Component {
+                       id: pathPhotoDelegate
+
+                       Column {
+                           spacing: 2
+                           scale: PathView.iconScale
+                           opacity: PathView.iconOpacity
+                           rotation: PathView.itemRotation
+
+                           MouseArea {
+                               width:64
+                               height:64
+
+                               Image {
+                                   width: parent.width
+                                   height: parent.height
+                                   source: icon
+                                   asynchronous: true
+                                   fillMode: Image.PreserveAspectCrop
+                               }
+
+                               onClicked: {
+                                   console.log("Clicked:" + index);
+                                   photosPathView.currentIndex = index
+
+                                   selectedPhotoLarge.source = rootRectangle.photos[index]
+                                   selectedPhotoLarge.visible = true
+                               }
+
+                               onDoubleClicked: {
+                                    deleteDialog.currentIndex = index;
+                                    deleteDialog.open();
+                               }
+                           }
+
+                           MessageDialog {
+                               property int currentIndex: -1
+
+                               id: deleteDialog
+                               title: "May I have your attention please"
+                               text: "Do you want to remove this image?"
+                               icon: StandardIcon.Warning
+                               standardButtons: StandardButton.Yes | StandardButton.No
+
+                               onYes: {
+                                   if (deleteDialog.currentIndex > -1) {
+                                       if (photosModel.count == 1) {
+                                           photosPathView.visible = false;
+                                           selectedPhotoLarge.visible = false;
+                                       }
+
+                                       photos.splice(deleteDialog.currentIndex, 1);
+                                       photosModel.remove(deleteDialog.currentIndex, 1);
+
+                                       selectedPhotoLarge.source = rootRectangle.photos[photosPathView.currentIndex]
+                                   }
+
+                                   deleteDialog.currentIndex = -1;
+                               }
+
+                               onNo: {
+                                   deleteDialog.currentIndex = -1;
+                               }
+
+                               Component.onCompleted: visible = false
+                           }
+                       }
+                    }
+
+                    Text {
+                        id: photosLabel
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "Photos"
+                    }
+
+                    Button {
+
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "upload photos"
+
+                        onClicked: {
+                            photosDialog.visible=true
+                        }
+
+                    }
+
+                    ListModel {
+                        id: photosModel
+                    }
+
+                    Image {
+                        id: selectedPhotoLarge
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.margins: 20
+                        fillMode: Image.PreserveAspectCrop
+                        width: parent.width * 0.6
+                        height: 180
+                        visible: false
+                    }
+
+                    PathView {
+                        id: photosPathView
+                        visible: false
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: parent.width
+                        height: 150
+                        model: photosModel
+                        delegate: pathPhotoDelegate
+                        path: Ellipse {
+                            width: contentWrapper.width
+                            height: this.height - 40
+                        }
+                    }
+                }
+
+                Separator {}
+
+                Column {
                     id: titleGroup
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    Text{
+                    Text {
                         id: titleLabel
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: "Title"
@@ -64,7 +220,57 @@ Rectangle {
 
                     TextField {
                         id: titleField
+                        width: 200
+                        height: 30
+                        style: TextFieldStyle {
+                            padding.top: 4
+                            padding.bottom: 4
+                            padding.right: 20
+                            padding.left: 20
+                        }
                         placeholderText: "Post title..."
+                    }
+                }
+
+                Separator {}
+
+                // Reactions row
+                RowLayout {
+                    height: 100
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: 10
+
+                    ExclusiveGroup { id: reactionGroup }
+
+                    ReactionImage {
+                        size: 60
+                        imgSrc: "reactions/angry.png"
+                        reactionText: "angry"
+                    }
+
+                    ReactionImage {
+                        size: 60
+                        imgSrc: "reactions/sad.png"
+                        reactionText: "sad"
+                    }
+
+                    ReactionImage {
+                        size: 60
+                        selected: true
+                        imgSrc: "reactions/yay.png"
+                        reactionText: "yay"
+                    }
+
+                    ReactionImage {
+                        size: 60
+                        imgSrc: "reactions/haha.png"
+                        reactionText: "haha"
+                    }
+
+                    ReactionImage {
+                        size: 60
+                        imgSrc: "reactions/wow.png"
+                        reactionText: "wow"
                     }
                 }
 
@@ -82,6 +288,23 @@ Rectangle {
 
                     TextArea {
                         id: contentField
+                    }
+                }
+
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "Add Post"
+
+                    onClicked: {
+                        console.log("add post");
+
+                        var title = titleField.text;
+                        var date = new Date();
+                        var content = contentField.text;
+                        var reaction = 1; // TODO
+
+                        mediator.insertPost(title, date, content, reaction, rootRectangle.photos);
+                        mainStack.pop();
                     }
                 }
             }

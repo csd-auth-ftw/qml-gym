@@ -23,7 +23,7 @@ public:
     const QString modelFilename = "postmodel_data.txt";
     enum PostRoles {
         TitleRole = Qt::UserRole + 1,
-        ContentRole, ReactionRole, PhotosRole
+        DateRole, ContentRole, ReactionRole, PhotosRole
     };
 
     PostModel();
@@ -31,8 +31,8 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QHash<int, QByteArray> roleNames() const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    void insertPost(QString title, QString content, quint16 reaction, QList<QUrl> photos);
-    void editPost(int index, QString title, QString content, quint16 reaction, QList<QUrl> photos);
+    void insertPost(QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos);
+    void editPost(int index, QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos);
     void deletePost(int index);
     void loadModel();
     void saveModel();

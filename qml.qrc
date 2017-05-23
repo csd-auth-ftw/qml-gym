@@ -7,5 +7,12 @@
         <file>Workouts.qml</file>
         <file>icons/add_black.png</file>
         <file>icons/back_black.png</file>
+        <file>reactions/angry.png</file>
+        <file>reactions/haha.png</file>
+        <file>reactions/sad.png</file>
+        <file>reactions/wow.png</file>
+        <file>reactions/yay.png</file>
+        <file>ReactionImage.qml</file>
+        <file>Ellipse.qml</file>
     </qresource>
 </RCC>

@@ -14,6 +14,7 @@ QHash<int, QByteArray> PostModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[TitleRole] = "title";
+    roles[DateRole] = "date";
     roles[ContentRole] = "content";
     roles[ReactionRole] = "reaction";
     roles[PhotosRole] = "photos";
@@ -30,6 +31,7 @@ QVariant PostModel::data(const QModelIndex &index, int role) const
     switch (role)
     {
         case TitleRole: return p.getTitle();
+        case DateRole: return p.getDate();
         case ContentRole: return p.getContent();
         case ReactionRole: return p.getReaction();
         case PhotosRole: return QVariant::fromValue(p.getPhotos());
@@ -37,18 +39,17 @@ QVariant PostModel::data(const QModelIndex &index, int role) const
     }
 }
 
-void PostModel::insertPost(QString title, QString content, quint16 reaction, QList<QUrl> photos)
+void PostModel::insertPost(QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos)
 {
     beginResetModel();
 
-    // Post *post = new Post(title, content, reaction, photos);
-    Post post(title, content, reaction, photos);
+    Post post(title, date, content, reaction, photos);
     postData.push_back(post);
 
     endResetModel();
 }
 
-void PostModel::editPost(int index, QString title, QString content, quint16 reaction, QList<QUrl> photos)
+void PostModel::editPost(int index, QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos)
 {
     beginResetModel();
     
@@ -56,6 +57,7 @@ void PostModel::editPost(int index, QString title, QString content, quint16 reac
     if(index > -1 && index < size)
     {
         postData[index].setTitle(title);
+        postData[index].setDate(date);
         postData[index].setContent(content);
         postData[index].setReaction(reaction);
         postData[index].setPhotos(photos);
@@ -89,6 +91,7 @@ void PostModel::loadModel()
     for (int i=0; i<rows; i++)
     {
         QString title = qtxstream.readLine();
+        QDate date = QDate::fromString(qtxstream.readLine(), "ddd dd MMM yyyy");
         QString content = qtxstream.readLine(); // TODO multiline content
         quint16 reaction = qtxstream.readLine().toInt();
 
@@ -100,7 +103,7 @@ void PostModel::loadModel()
             photos.append(url);
         }
 
-        insertPost(title, content, reaction, photos);
+        insertPost(title, date, content, reaction, photos);
     }
 
     qfile.close();
@@ -122,6 +125,7 @@ void PostModel::saveModel()
     for (itr = postData.begin(); itr != postData.end(); itr++)
     {
         qtxstream << itr->getTitle() << endl;
+        qtxstream << itr->getDate().toString("ddd dd MMM yyyy") << endl;
         qtxstream << itr->getContent() << endl;
         qtxstream << itr->getReaction() << endl;
 
