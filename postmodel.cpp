@@ -1,7 +1,8 @@
 #include "postmodel.h"
 
-PostModel::PostModel()
+PostModel::PostModel(QString path)
 {
+    modelFilePath = path;
     loadModel();
 }
 
@@ -17,6 +18,7 @@ QHash<int, QByteArray> PostModel::roleNames() const
     roles[DateRole] = "date";
     roles[ContentRole] = "content";
     roles[ReactionRole] = "reaction";
+    roles[WeightRole] = "weight";
     roles[PhotosRole] = "photos";
     return roles;
 }
@@ -34,22 +36,23 @@ QVariant PostModel::data(const QModelIndex &index, int role) const
         case DateRole: return p.getDate();
         case ContentRole: return p.getContent();
         case ReactionRole: return p.getReaction();
+        case WeightRole: return p.getWeight();
         case PhotosRole: return QVariant::fromValue(p.getPhotos());
         default: return QVariant();
     }
 }
 
-void PostModel::insertPost(QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos)
+void PostModel::insertPost(QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos)
 {
     beginResetModel();
 
-    Post post(title, date, content, reaction, photos);
+    Post post(title, date, content, reaction, weight, photos);
     postData.push_back(post);
 
     endResetModel();
 }
 
-void PostModel::editPost(int index, QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos)
+void PostModel::editPost(int index, QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos)
 {
     beginResetModel();
     
@@ -60,6 +63,7 @@ void PostModel::editPost(int index, QString title, QDate date, QString content, 
         postData[index].setDate(date);
         postData[index].setContent(content);
         postData[index].setReaction(reaction);
+        postData[index].setWeight(weight);
         postData[index].setPhotos(photos);
     }
 
@@ -83,7 +87,7 @@ void PostModel::loadModel()
 {
     cout << "Loading post model..." << endl;
 
-    QFile qfile(modelFilename);
+    QFile qfile(modelFilePath);
     QTextStream qtxstream(&qfile);
     qfile.open(QIODevice::ReadOnly | QIODevice::Text);
 
@@ -91,11 +95,13 @@ void PostModel::loadModel()
     for (int i=0; i<rows; i++)
     {
         QString title = qtxstream.readLine();
-        QDate date = QDate::fromString(qtxstream.readLine(), "ddd dd MMM yyyy");
+        QDateTime date = QDateTime::fromString(qtxstream.readLine(), "dd-MM-yyyy hh:mm");
         QString content = qtxstream.readLine(); // TODO multiline content
-        quint16 reaction = qtxstream.readLine().toInt();
+        QString reaction = qtxstream.readLine();
+        quint16 weight = qtxstream.readLine().toInt();
 
         int photos_n = qtxstream.readLine().toInt();
+        std::cout << "photos_n=" << photos_n << std::endl;
         QList<QUrl> photos = QList<QUrl>();
         for (int j=0; j<photos_n; j++)
         {
@@ -103,7 +109,7 @@ void PostModel::loadModel()
             photos.append(url);
         }
 
-        insertPost(title, date, content, reaction, photos);
+        insertPost(title, date, content, reaction, weight, photos);
     }
 
     qfile.close();
@@ -113,7 +119,7 @@ void PostModel::saveModel()
 {
     cout << "Saving post model..." << endl;
     
-    QFile qfile(modelFilename);
+    QFile qfile(modelFilePath);
     QTextStream qtxstream(&qfile);
     qfile.open(QIODevice::WriteOnly | QIODevice::Text);
 
@@ -125,9 +131,10 @@ void PostModel::saveModel()
     for (itr = postData.begin(); itr != postData.end(); itr++)
     {
         qtxstream << itr->getTitle() << endl;
-        qtxstream << itr->getDate().toString("ddd dd MMM yyyy") << endl;
+        qtxstream << itr->getDate().toString("dd-MM-yyyy hh:mm") << endl;
         qtxstream << itr->getContent() << endl;
         qtxstream << itr->getReaction() << endl;
+        qtxstream << itr->getWeight() << endl;
 
         QList<QUrl> photos = itr->getPhotos();
         qtxstream << photos.size() << endl;

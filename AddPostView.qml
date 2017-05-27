@@ -8,25 +8,31 @@ import QtQuick.Dialogs 1.1
 Rectangle {
     id: rootRectangle
     anchors.fill: parent
+
     property var photos : [];
+
+    function validateInput() {
+        if (titleField.text.trim().length < 1)
+            return false;
+
+        if (contentField.text.trim().length < 1)
+            return false;
+
+        if (!reactionGroup.current)
+            return false;
+
+        return true;
+    }
 
     CustomToolbar {
         id: mainToolBar
+        subtitle: "Add a new post"
         Layout.preferredWidth: parent.width
 
-        ToolButton{
+        ToolImageButton {
             id: goBackButton
-            anchors.left: toolBarTitle.right
-            width: parent.height
-            height: width
-
-            Image {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                source: "icons/back_black.png"
-                width: parent.width * 0.7
-                height: width
-            }
+            anchors.right: parent.right
+            imgSrc: "icons/back_black.png"
 
             onClicked: {
                 mainStack.pop();
@@ -71,13 +77,23 @@ Rectangle {
                         selectExisting: true
 
                         onAccepted: {
+                            // check if any file got selected
                             if (this.fileUrls.length < 1)
                                 return;
 
                             for (var i = 0; i < this.fileUrls.length; i++){
                                 var photoUrl = this.fileUrls[i];
-                                rootRectangle.photos.push(Qt.resolvedUrl(photoUrl));
+                                var resolvedUrl = Qt.resolvedUrl(photoUrl);
+
+                                // check for duplicates
+                                if (rootRectangle.photos.indexOf(resolvedUrl) >= 0)
+                                    continue;
+
+                                // add to model
+                                rootRectangle.photos.push(resolvedUrl);
                                 photosModel.append({"icon": photoUrl});
+
+                                // make photo path visible
                                 photosPathView.visible = true
                             }
 
@@ -109,7 +125,7 @@ Rectangle {
                                    height: parent.height
                                    source: icon
                                    asynchronous: true
-                                   fillMode: Image.PreserveAspectCrop
+                                   fillMode: Image.PreserveAspectFit
                                }
 
                                onClicked: {
@@ -243,34 +259,24 @@ Rectangle {
                     ExclusiveGroup { id: reactionGroup }
 
                     ReactionImage {
-                        size: 60
-                        imgSrc: "reactions/angry.png"
-                        reactionText: "angry"
+                        reaction: "angry"
                     }
 
                     ReactionImage {
-                        size: 60
-                        imgSrc: "reactions/sad.png"
-                        reactionText: "sad"
+                        reaction: "sad"
                     }
 
                     ReactionImage {
-                        size: 60
+                        reaction: "yay"
                         selected: true
-                        imgSrc: "reactions/yay.png"
-                        reactionText: "yay"
                     }
 
                     ReactionImage {
-                        size: 60
-                        imgSrc: "reactions/haha.png"
-                        reactionText: "haha"
+                        reaction: "haha"
                     }
 
                     ReactionImage {
-                        size: 60
-                        imgSrc: "reactions/wow.png"
-                        reactionText: "wow"
+                        reaction: "wow"
                     }
                 }
 
@@ -298,12 +304,16 @@ Rectangle {
                     onClicked: {
                         console.log("add post");
 
+                        if (!validateInput())
+                            return;
+
                         var title = titleField.text;
                         var date = new Date();
                         var content = contentField.text;
-                        var reaction = 1; // TODO
+                        var reaction = reactionGroup.current.text;
+                        var weight = 100; // TODO
 
-                        mediator.insertPost(title, date, content, reaction, rootRectangle.photos);
+                        mediator.insertPost(title, date, content, reaction, weight, rootRectangle.photos);
                         mainStack.pop();
                     }
                 }

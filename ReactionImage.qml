@@ -3,10 +3,9 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.3
 
 ColumnLayout {
-    property string reactionText: "no shit"
-    property string imgSrc: ""
+    property string reaction
     property bool selected: false
-    property int size: 70
+    property int size: 60
 
     Layout.minimumWidth: size - 20
     Layout.preferredWidth: size
@@ -21,7 +20,7 @@ ColumnLayout {
             width: parent.width
             height: parent.height
             fillMode: Image.PreserveAspectFit
-            source: imgSrc
+            source: "reactions/" + reaction + ".png"
 
             MouseArea {
                 id: ma
@@ -30,7 +29,6 @@ ColumnLayout {
                 cursorShape: ma.containsMouse ? Qt.PointingHandCursor: Qt.ArrowCursor
 
                 onClicked: {
-                    console.log("clicked image");
                     reactionGroup.current = rdio
                 }
             }
@@ -44,7 +42,7 @@ ColumnLayout {
         RadioButton {
             id: rdio
             anchors.horizontalCenter: parent.horizontalCenter
-            text: reactionText
+            text: reaction
             checked: selected
             exclusiveGroup: reactionGroup
         }

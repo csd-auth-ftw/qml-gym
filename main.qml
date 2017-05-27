@@ -11,7 +11,7 @@ Window {
 
     Component {
         id: mainComponent
-        Workouts {}
+        PostListView {}
     }
 
     StackView {

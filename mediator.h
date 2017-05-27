@@ -11,6 +11,7 @@ class Mediator : public QObject
 
 private:
     PostModel *_postModel;
+    QString dataPath;
 
 public:
     Mediator(QObject *parent=0);
@@ -27,8 +28,8 @@ signals:
     void postModelChanged();
 
 public slots:
-    void insertPost(QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos);
-    void editPost(int index, QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos);
+    void insertPost(QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos);
+    void editPost(int index, QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos);
     void deletePost(int index);
     void saveAll();
 };

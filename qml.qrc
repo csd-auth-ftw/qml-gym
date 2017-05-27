@@ -14,5 +14,12 @@
         <file>reactions/yay.png</file>
         <file>ReactionImage.qml</file>
         <file>Ellipse.qml</file>
+        <file>PostListView.qml</file>
+        <file>PostField.qml</file>
+        <file>ToolImageButton.qml</file>
+        <file>PostView.qml</file>
+        <file>icons/delete_black.png</file>
+        <file>icons/edit_black.png</file>
+        <file>icons/stats_black.png</file>
     </qresource>
 </RCC>

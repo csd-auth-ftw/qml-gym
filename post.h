@@ -1,30 +1,34 @@
 #ifndef POST_H
 #define POST_H
 
-#include <QDate>
+#include <QDateTime>
 #include <QUrl>
+#include <QObject>
 
 class Post
 {
 private:
     QString title;
-    QDate date;
+    QDateTime date;
     QString content;
-    quint16 reaction;
+    QString reaction;
+    quint16 weight;
     QList<QUrl> photos;
 
 public:
-    Post(QString title, QDate date, QString content, quint16 reaction, QList<QUrl> photos);
+    Post(QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos);
     QString getTitle() {return title;}
-    QDate getDate() {return date;}
+    QDateTime getDate() {return date;}
     QString getContent() {return content;}
-    quint16 getReaction() {return reaction;}
+    QString getReaction() {return reaction;}
+    quint16 getWeight() {return weight;}
     QList<QUrl> getPhotos() {return photos;}
 
     void setTitle(QString t) {title = t;}
-    void setDate(QDate d) {date = d;}
+    void setDate(QDateTime d) {date = d;}
     void setContent(QString c) {content = c;}
-    void setReaction(quint16 r) {reaction = r;}
+    void setReaction(QString r) {reaction = r;}
+    void setWeight(quint16 w) {weight = w;}
     void setPhotos(QList<QUrl> p) {photos = p;}
 };
 
