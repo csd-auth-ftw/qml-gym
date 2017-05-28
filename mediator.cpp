@@ -38,6 +38,22 @@ void Mediator::deletePost(int index)
     saveAll();
 }
 
+QString Mediator::getWorkoutsContent()
+{
+    QFile qfile(":workouts/workouts.json");
+    QTextStream qtxstream(&qfile);
+    qfile.open(QIODevice::ReadOnly | QIODevice::Text);
+    QString content = "", line;
+
+    while(!qtxstream.atEnd())
+    {
+        line = qtxstream.readLine();
+        content += line;
+    }
+
+    return content;
+}
+
 void Mediator::saveAll()
 {
     _postModel->saveModel();

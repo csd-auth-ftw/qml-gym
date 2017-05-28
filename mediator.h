@@ -31,6 +31,7 @@ public slots:
     void insertPost(QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos);
     void editPost(int index, QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos);
     void deletePost(int index);
+    QString getWorkoutsContent();
     void saveAll();
 };
 

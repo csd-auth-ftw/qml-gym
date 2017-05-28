@@ -1,0 +1,155 @@
+{
+    "workouts": [
+        {
+            "title": "Squat",
+            "category": "Quads",
+            "images": [
+                "images/Squat1.png",
+                "images/Sqaut2.png"
+            ],
+            "preperation": "Stand with your feet a little wider than shoulder width apart.",
+            "execution": "Squat down to a 90 degree angle,keeping your back straight.Return to start position and repeat."
+        },
+        {
+            "title": "Squat Jump",
+            "category": "Quads",
+            "images": [
+                "images/Squat Jump1.png",
+                "images/Squat Jump2.png"
+            ],
+            "preperation": "Stand with your feet shoulder width apart.",
+            "execution": "Bend down to a squat position and as your come up jump up in the air.As you land bend down to a squat position again."
+        },
+        {
+            "title": "180 Squat Jump",
+            "category": "Quads",
+            "images": [
+                "images/180 Squat Jump1.png",
+                "images/180 Squat Jump2.png"
+            ],
+            "preperation": "Stand with your feet shoulder width apart.",
+            "execution": "Bend down to a squat positionj and as you come up jump up in the air and spinnign aroud 181 degrees.As you land down to a squat position again."
+        },
+        {
+            "title": "Sumo Squat Leg Raise",
+            "category": "Quads",
+            "images": [
+                "images/Sumo Squat Leg Raise1.png",
+                "images/Sumo Squat Leg Raise2.png",
+                "images/Sumo Squat Leg Raise3.png",
+                "images/Sumo Squat Leg Raise4.png"
+            ],
+            "preperation": "Stand with your feet 4-6 inches wider than your shoulders,with your toes pointed out at a 45 degree angle.",
+            "execution": "While keeping your back straight descend slowly by bending as the kness and hips as if you are sitting down (squatting).When you are returning to starting position raise one leg up."
+        },
+        {
+            "title": "Cross Lunges",
+            "category": "Quads",
+            "images": [
+                "images/Cross Lunges1.png"
+            ],
+            "preperation": "Stand with your feet shoulder apart.",
+            "execution": "Perform a rear lunge by stepping back with one foot and flexing the hips and front knee.Push forward to return to your starting position."
+        },
+        {
+            "title": "Calf Raise,Single Leg R+L",
+            "category": "Calves",
+            "images": [
+                "images/Calf Raise,Single Leg R+L1.png",
+                "images/Calf Raise,Single Leg R+L2.png"
+            ],
+            "preperation": "Do this exercise while holding on to a bar or rack with your hand.Place the front part of one foot on a an exercise step with your heel hanging off.Raiuse your other foot up and cross it behind your other calf.",
+            "execution": "Keeping your leg that is supporting you straight,flex your calf and raise yourself as high as you can,and then lower to start position and repeat."
+        },
+        {
+            "title": "Dumbbell Calf Raise,Seated,Single Leg R+L",
+            "category": "Calves",
+            "images": [
+                "images/Dumbbell Calf Raise,Seated,Single Leg R+L1.png",
+                "images/Dumbbell Calf Raise,Seated,Single Leg R+L2.png"
+            ],
+            "preperation": "Sit down on a flat bench with an exercise step about a foot in front of you.Place the from of your foot on the step and rest a dumbbell on top of it.",
+            "execution": "Breathe out and raise your heel as high as possible as you exhale.Slowly return to start position while streaching as far as down as your can.Repeat and switch legs once you finish your set."
+        },
+        {
+            "title": "Jumping Jacks",
+            "category": "Calves",
+            "images": [
+                "images/Jumping Jacks1.png",
+                "images/Jumping Jacks2.png"
+            ],
+            "preperation": "Stand with feet together,knees slightly bent and arms to sides.",
+            "execution": "Jump while raising arms and separating legs to sides.Land on forefoot with legs apart arms overhead.Jump again while lower arms and returning legs to midline."
+        },
+        {
+            "title": "Jumping Rope",
+            "category": "Calves",
+            "images": [
+                "images/Jumping Rope1.png",
+                "images/Jumping Rope2.png"
+            ],
+            "preperation": "Stand with your feet together holding the rope.",
+            "execution": "Spin the rope and jump up as it approaches your feet."
+        },
+        {
+            "title": "Running",
+            "category": "Calves",
+            "images": [
+                "images/Running1.png",
+                "images/Running2.png"
+            ],
+            "preperation": "Start with a walk and gradually speed up until you are moving at a fast,steady pace.",
+            "execution": ""
+        },
+        {
+            "title": "Superman",
+            "category": "Lower Back",
+            "images": [
+                "images/Superman1.png",
+                "images/Superman2.png"
+            ],
+            "preperation": "Lie ace down with your legs straight and your arms forward and raised.",
+            "execution": "Lift your legs and upper torso off the ground.Hold,then lower and repeat."
+        },
+        {
+            "title": "Bent Over Dumbbell Forward Rows",
+            "category": "Lower Back",
+            "images": [
+                "images/Bent Over Dumbbell Forward Rows1.png",
+                "images/Bent Over Dumbbell Forward Rows2.png"
+            ],
+            "preperation": "Stand with your feet shoulder width apart,holding a dumbbell in each hand and bending forward.",
+            "execution": "Keeping your back straight,pull the dumbbell back towards your midsection.Slowly lower,and repeat."
+        },
+        {
+            "title": "Reverse Snow Angels",
+            "category": "Lower Back",
+            "images": [
+                "images/Reverse Snow Angels1.png",
+                "images/Reverse Snow Angels2.png"
+            ],
+            "preperation": "Lie down on the floor with your hands straight out and off the floor.",
+            "execution": "Using your back,move your arms in a circular motion to touch your hips.Extend back to a straight position."
+        },
+        {
+            "title": "Bent Over Dumbbell Rows",
+            "category": "Lower Back",
+            "images": [
+                "images/Bent Over Dumbbell Rows1.png",
+                "images/Bent Over Dumbbell Rows2.png"
+            ],
+            "preperation": "Stand with your feet shoulder width apart,holding a dumbbell in each hand and bending forward.",
+            "execution": "Keeping your back straight,pull the dumbbels up t owards your shoulders.Slowly lower and repeat."
+        },
+        {
+            "title": "Hip Hinge",
+            "category": "Lower Back",
+            "images": [
+                "images/Hip Hinge1.png",
+                "images/Hip Hinge2.png"
+            ],
+            "preperation": "Stand with your feet shoulder width apart.",
+            "execution": "keeping your back straight bend forward,while keeping a slight bend in your knees.Slowly return to your starting position while exhaling."
+        }
+    ]
+}

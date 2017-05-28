@@ -21,5 +21,41 @@
         <file>icons/delete_black.png</file>
         <file>icons/edit_black.png</file>
         <file>icons/stats_black.png</file>
+        <file>WorkoutListView.qml</file>
+        <file>WorkoutView.qml</file>
+        <file>MainMenu.qml</file>
+        <file>icons/menu_black.png</file>
+        <file>workouts/images/180 Squat Jump1.PNG</file>
+        <file>workouts/images/180 Squat Jump2.PNG</file>
+        <file>workouts/images/Bent Over Dumbbell Forward Rows1.PNG</file>
+        <file>workouts/images/Bent Over Dumbbell Forward Rows2.PNG</file>
+        <file>workouts/images/Bent Over Dumbbell Rows1.PNG</file>
+        <file>workouts/images/Bent Over Dumbbell Rows2.PNG</file>
+        <file>workouts/images/Calf Raise,Single Leg R+L1.PNG</file>
+        <file>workouts/images/Calf Raise,Single Leg R+L2.PNG</file>
+        <file>workouts/images/Cross Lunges1.PNG</file>
+        <file>workouts/images/Dumbbell Calf Raise,Seated,Single Leg R+L1.PNG</file>
+        <file>workouts/images/Dumbbell Calf Raise,Seated,Single Leg R+L2.PNG</file>
+        <file>workouts/images/Hip Hinge1.PNG</file>
+        <file>workouts/images/Hip HInge2.PNG</file>
+        <file>workouts/images/Jumping Jacks1.PNG</file>
+        <file>workouts/images/Jumping Jacks2.PNG</file>
+        <file>workouts/images/Jumping Rope1.PNG</file>
+        <file>workouts/images/Jumping Rope2.PNG</file>
+        <file>workouts/images/Reverse Snow Angels1.PNG</file>
+        <file>workouts/images/Reverse Snow Angels2.PNG</file>
+        <file>workouts/images/Running1.PNG</file>
+        <file>workouts/images/Running2.PNG</file>
+        <file>workouts/images/Sqaut1.PNG</file>
+        <file>workouts/images/Squat Jump1.PNG</file>
+        <file>workouts/images/Squat Jump2.PNG</file>
+        <file>workouts/images/Squat2.PNG</file>
+        <file>workouts/images/Sumo Squat Leg Raise1.PNG</file>
+        <file>workouts/images/Sumo Squat Leg Raise2.PNG</file>
+        <file>workouts/images/Sumo Squat Leg Raise3.PNG</file>
+        <file>workouts/images/Sumo Squat Leg Raise4.PNG</file>
+        <file>workouts/images/Superman1.PNG</file>
+        <file>workouts/images/Superman2.PNG</file>
+        <file>workouts/workouts.json</file>
     </qresource>
 </RCC>
