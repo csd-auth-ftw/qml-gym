@@ -1,16 +1,6 @@
 {
     "workouts": [
         {
-            "title": "Squat",
-            "category": "Quads",
-            "images": [
-                "images/Squat1.png",
-                "images/Sqaut2.png"
-            ],
-            "preperation": "Stand with your feet a little wider than shoulder width apart.",
-            "execution": "Squat down to a 90 degree angle,keeping your back straight.Return to start position and repeat."
-        },
-        {
             "title": "Squat Jump",
             "category": "Quads",
             "images": [
@@ -93,7 +83,7 @@
         },
         {
             "title": "Running",
-            "category": "Calves",
+            "category": "Cardio",
             "images": [
                 "images/Running1.png",
                 "images/Running2.png"
@@ -150,6 +140,136 @@
             ],
             "preperation": "Stand with your feet shoulder width apart.",
             "execution": "keeping your back straight bend forward,while keeping a slight bend in your knees.Slowly return to your starting position while exhaling."
+        },
+        {
+            "title": "Crunch",
+            "category": "Abs",
+            "images": [
+                "images/Crunch1.png",
+                "images/Crunch2.png"
+            ],
+            "preperation": "Lie on your back with your knees bent and feel flat on the floor, hip-width apart.Place your hands behind your head without pulling on your neck.",
+            "execution": "Curl up and forward so that your head, neck, and shoulder blades lift off the floor and then lower slowly back down and repeat" 
+        },
+        {
+            "title": "Bicycle Crunch",
+            "category": "Abs",
+            "images": [
+                "images/Bicycle Crunch1.png",
+                "images/Bicycle Crunch2.png"
+            ],
+            "preperation": "Lie on your floor with your legs straight out and hands behind your head.",
+            "execution": "Raise your legs and touch your right elbow to your knee, while extending your right leg, creating a motion like you are on a bicycle." 
+        },
+        {
+            "title": "Weighted Situps",
+            "category": "Abs",
+            "images": [
+                "images/Weighted Situps1.png",
+                "images/Weighted Situps2.png"
+            ],
+            "preperation": "Lay back on a flat bench while holding a plate weight against your chest.",
+            "execution": "With your head pointing straight and forward, raise your body up until you are upright, lifting your shoulders away from the bench. Roll back down to the starting position and repeat."
+        },
+        {
+            "title": "Pushup,Normal Grip",
+            "category": "Chest",
+            "images": [
+                "images/Pushup, Normal Grip1.png",
+                "images/Pushup, Normal Grip2.png"
+            ],
+            "preperation": "Lie on the floor face down with your hands just wider than shoulder length apart, while holding your body off the ground with your arms extended.",
+            "execution": "Inhale and lower yourself downward until your chest nearly touches the floor.Exhare, return to starting position and repeat."
+        },
+        {
+            "title": "Decline Pushup, Normal Grip",
+            "category": "Chest",
+            "images": [
+                "images/Decline Pushup, Normal Grip1.png",
+                "images/Decline Pushup, Normal Grip2.png"
+            ],
+            "preperation": "With your hands at about shoulder width apart, brace yourself in a push up position with your legs resting on an exercise step, bench or box.",
+            "execution": "Inhale and lower yourself downward until your chest nearly touches the floor. Exhare, retuern to starting position and repeat."
+        },
+        {
+            "title": "Dumbbell Press,Normal Grip",
+            "category": "Chest",
+            "images": [
+                "images/Dumbbell Press, Normal Grip1.png",
+                "images/Dumbbell Press, Normal Grip2.png"
+            ],
+            "preperation": "Lie down on a flat bench with a dumbbell in each hand resting on top of your thighs, with your palms facing each other. Use your thighs to lift up the dumbbells one at a time so they are over your chest, shoulder width apart.",
+            "execution": "Brathe out and push the dumbbells up using your chest."
+        },
+        {
+            "title": "Skipping",
+            "category": "Cardio",
+            "images": [
+                "images/skipping1.png",
+                "images/skipping2.png"
+            ],
+            "preperation": "Stand with your feet together in a comfortable position.",
+            "execution": "Skip by alternating knees, similar or running in place."
+        },
+        {
+            "title": "Bicycle Machine",
+            "category": "Cardio",
+            "images": [
+                "images/Bicycle Machine1.png",
+                "images/Bicycle Machine2.png"
+            ],
+            "preperation": "Sit down on the exercise bike, hold the grips and select quick start or enter program.",
+            "execution": "Pedal forward as you would on a bike while gripping the handles."
+        },
+        {
+            "title": "Dumbbell Biceps Curl, Starting, Underhand Grip",
+            "category": "Biceps",
+            "images": [
+                "images/Dumbbell Biceps Curl, Starting, Underhand Grip1.png",
+                "images/Dumbbell Biceps Curl, Starting, Underhand Grip2.png"
+            ],
+            "preperation": "Stand up straight with a dumbbell in your desired grip, while keeping your elbows close to your sides.",
+            "execution": "Keep your upper arms still, exhale, and curl the weights upwards, while contracting your biceps. Lower the weights to starting position and repeat."
+        },
+        {
+            "title": "Dumbbell Biceps Curl, On Knee, Underhand Grip R+L",
+            "category": "Biceps",
+            "images": [
+                "images/Dumbbell Biceps Curl, On Knee, Underhand Grip R+L1.png",
+                "images/Dumbbell Biceps Curl, On Knee, Underhand Grip R+L2.png"
+            ],
+            "preperation": "Sit on one of a bench, hold one dumbbell in one hand with your palm facing up and place that same elbow (extended) against the front of your thigh.",
+            "execution": "Raise the dumbbell until it reaches shoulder height and slowly lower it back down. Repeat and switch arms after you complete a set."
+        },
+        {
+            "title": "Bodyweight Pull Up, Normal Grip",
+            "category": "Biceps",
+            "images": [
+                "images/Bodyweight Pull Up, Normal Grip1.png",
+                "images/Bodyweight Pull Up, Normal Grip2.png"
+            ],
+            "preperation": "Hold on to the pull up bar using the neutral grip handles (parallel bars) and grip them with your palms facing each other.Hang there with your body extended.",
+            "execution": "Exhale as tou pull yourself up until your neck reaches the height of your hands.Ingale as you lower your body until your arms and shoulders are extended and repeat."
+        },
+        {
+            "title": "Squat",
+            "category": "Quands",
+            "images": [
+                "images/Squat1.png",
+                "images/Squat2.png"
+            ],
+            "preperation": "Stand with your feed a little wider than shoulder width apart.",
+            "execution": "Squat down to a 90 degree angle, keeping your back straight. Return to start position and repeat."
+        },
+        {
+            "title": "Dumbbell Iron Cross",
+            "category": "Quands",
+            "images": [
+                "images/Dumbbell Iron Cross1.png",
+                "images/Dumbbell Iron Cross2.png"
+            ],
+            "preperation": "Stand with your feet shoulder width apart, holding a dumbbell in each hand. With your palms facing forward, outstretch your arms to the side making a letter T.",
+            "execution": "Keeping a straight back, bend down at the knees as if you were sitting down in a chair. While you are descending, bring your arms in front of you until tour hands are together and facing each other. Return and repeat."
         }
     ]
 }

@@ -53,6 +53,8 @@ Rectangle {
             for (var i in data.workouts) {
                 workoutsModel.append(data.workouts[i]);
             }
+
+            console.log("rows=" + workoutsModel.rowCount());
         }
     }
 }

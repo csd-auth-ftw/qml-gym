@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick
+QT += qml quick charts
 CONFIG += c++11
 
 SOURCES += main.cpp \
@@ -36,10 +36,3 @@ HEADERS += \
     mediator.h \
     post.h \
     postmodel.h
-
-DISTFILES += \
-    reactions/angry.png \
-    reactions/haha.png \
-    reactions/sad.png \
-    reactions/wow.png \
-    reactions/yay.png

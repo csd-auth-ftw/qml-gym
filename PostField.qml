@@ -5,7 +5,7 @@ Rectangle {
     property string fieldText
 
     width: parent.width
-    height: parent.height * 0.33
+    height: parent.height * 0.25
 
     Text {
         anchors.verticalCenter: parent.verticalCenter

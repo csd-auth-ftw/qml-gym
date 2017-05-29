@@ -17,16 +17,16 @@ Mediator::Mediator(QObject *parent): QObject(parent)
     std::cout << dataPath.toStdString() << std::endl;
 }
 
-void Mediator::insertPost(QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos)
+void Mediator::insertPost(QString title, QDateTime date, QString content, QString reaction, quint16 weight, quint16 calories, bool run, QList<QUrl> photos)
 {
-    _postModel->insertPost(title, date, content, reaction, weight, photos);
+    _postModel->insertPost(title, date, content, reaction, weight, calories, run, photos);
     emit postModelChanged();
     saveAll();
 }
 
-void Mediator::editPost(int index, QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos)
+void Mediator::editPost(int index, QString title, QDateTime date, QString content, QString reaction, quint16 weight, quint16 calories, bool run, QList<QUrl> photos)
 {
-    _postModel->editPost(index, title, date, content, reaction, weight, photos);
+    _postModel->editPost(index, title, date, content, reaction, weight, calories, run, photos);
     emit postModelChanged();
     saveAll();
 }
@@ -40,6 +40,11 @@ void Mediator::deletePost(int index)
 
 QString Mediator::getWorkoutsContent()
 {
+    // load cached
+    if (!workoutsContent.isEmpty())
+        return workoutsContent;
+
+    // or load from file
     QFile qfile(":workouts/workouts.json");
     QTextStream qtxstream(&qfile);
     qfile.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -51,6 +56,7 @@ QString Mediator::getWorkoutsContent()
         content += line;
     }
 
+    workoutsContent = content;
     return content;
 }
 

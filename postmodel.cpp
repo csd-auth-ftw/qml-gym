@@ -19,7 +19,10 @@ QHash<int, QByteArray> PostModel::roleNames() const
     roles[ContentRole] = "content";
     roles[ReactionRole] = "reaction";
     roles[WeightRole] = "weight";
+    roles[CaloriesRole] = "calories";
+    roles[RunRole] = "run";
     roles[PhotosRole] = "photos";
+
     return roles;
 }
 
@@ -37,22 +40,24 @@ QVariant PostModel::data(const QModelIndex &index, int role) const
         case ContentRole: return p.getContent();
         case ReactionRole: return p.getReaction();
         case WeightRole: return p.getWeight();
+        case CaloriesRole: return p.getCalories();
+        case RunRole: return p.getRun();
         case PhotosRole: return QVariant::fromValue(p.getPhotos());
         default: return QVariant();
     }
 }
 
-void PostModel::insertPost(QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos)
+void PostModel::insertPost(QString title, QDateTime date, QString content, QString reaction, quint16 weight, quint16 calories, bool run, QList<QUrl> photos)
 {
     beginResetModel();
 
-    Post post(title, date, content, reaction, weight, photos);
+    Post post(title, date, content, reaction, weight, calories, run, photos);
     postData.push_back(post);
 
     endResetModel();
 }
 
-void PostModel::editPost(int index, QString title, QDateTime date, QString content, QString reaction, quint16 weight, QList<QUrl> photos)
+void PostModel::editPost(int index, QString title, QDateTime date, QString content, QString reaction, quint16 weight, quint16 calories, bool run, QList<QUrl> photos)
 {
     beginResetModel();
     
@@ -64,6 +69,8 @@ void PostModel::editPost(int index, QString title, QDateTime date, QString conte
         postData[index].setContent(content);
         postData[index].setReaction(reaction);
         postData[index].setWeight(weight);
+        postData[index].setCalories(calories);
+        postData[index].setRun(run);
         postData[index].setPhotos(photos);
     }
 
@@ -99,6 +106,8 @@ void PostModel::loadModel()
         QString content = qtxstream.readLine(); // TODO multiline content
         QString reaction = qtxstream.readLine();
         quint16 weight = qtxstream.readLine().toInt();
+        quint16 calories = qtxstream.readLine().toInt();
+        bool run = qtxstream.readLine().toInt() > 0 ? true: false;
 
         int photos_n = qtxstream.readLine().toInt();
         std::cout << "photos_n=" << photos_n << std::endl;
@@ -109,7 +118,7 @@ void PostModel::loadModel()
             photos.append(url);
         }
 
-        insertPost(title, date, content, reaction, weight, photos);
+        insertPost(title, date, content, reaction, weight, calories, run, photos);
     }
 
     qfile.close();
@@ -135,6 +144,8 @@ void PostModel::saveModel()
         qtxstream << itr->getContent() << endl;
         qtxstream << itr->getReaction() << endl;
         qtxstream << itr->getWeight() << endl;
+        qtxstream << itr->getCalories() << endl;
+        qtxstream << (itr->getRun() ? 1: 0) << endl;
 
         QList<QUrl> photos = itr->getPhotos();
         qtxstream << photos.size() << endl;

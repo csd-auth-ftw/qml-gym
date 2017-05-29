@@ -24,6 +24,11 @@ Rectangle {
     }
 
     Component {
+        id: comp_statsView
+        StatsView {}
+    }
+
+    Component {
         id: postDelegate
 
         Item {
@@ -85,6 +90,8 @@ Rectangle {
                                     "content": content,
                                     "reaction": reaction,
                                     "weight": weight,
+                                    "calories": calories,
+                                    "run": run,
                                     "photos": photos
                                 }
                             }
@@ -98,7 +105,7 @@ Rectangle {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     Layout.preferredWidth: parent.width * 0.15
-                    Layout.minimumWidth: 60
+                    Layout.minimumWidth: 90
                     Layout.maximumWidth: 200
                     color: "#dddddd"
 
@@ -106,15 +113,19 @@ Rectangle {
                         anchors.fill: parent
 
                         PostField {
-                            fieldText: "photos: " + photos.length
+                            fieldText: "Photos: " + photos.length
                         }
 
                         PostField {
-                            fieldText: "weight: " + weight + "kg"
+                            fieldText: "Weight: " + weight + "kg"
                         }
 
                         PostField {
-                            fieldText: "todo: 0000"
+                            fieldText: "Calories: " + calories
+                        }
+
+                        PostField {
+                            fieldText: "Run that day? " + run
                         }
                     }
                 }
@@ -169,7 +180,7 @@ Rectangle {
             imgSrc: "icons/stats_black.png"
 
             onClicked: {
-                // TODO
+                mainStack.push(comp_statsView);
             }
         }
 
@@ -179,7 +190,7 @@ Rectangle {
             imgSrc: "icons/add_black.png"
 
             onClicked: {
-                mainStack.push(comp_addPostView)
+                mainStack.push(comp_addPostView);
             }
         }
 

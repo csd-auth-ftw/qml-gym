@@ -297,6 +297,63 @@ Rectangle {
                     }
                 }
 
+                Separator {}
+
+                Column {
+                    id: extraGroup
+                    spacing: 10
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "More information"
+                    }
+
+                    Row {
+                        spacing: 10
+
+                        Text{
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: "Weight"
+                        }
+
+                        TextField {
+                            id: weightField
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Row {
+                        spacing: 10
+
+                        Text{
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: "Calories +/-"
+                        }
+
+                        TextField {
+                            id: caloriesField
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Row {
+                        spacing: 10
+
+                        Text{
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: "Did you run today?"
+                        }
+
+                        CheckBox {
+                            id: runCheckBox
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                }
+
+                Separator {}
+
                 Button {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Add Post"
@@ -311,9 +368,15 @@ Rectangle {
                         var date = new Date();
                         var content = contentField.text;
                         var reaction = reactionGroup.current.text;
-                        var weight = 100; // TODO
+                        var weight = parseInt(weightField.text);
+                        var calories = parseInt(caloriesField.text);
+                        var run = runCheckBox.checked;
 
-                        mediator.insertPost(title, date, content, reaction, weight, rootRectangle.photos);
+                        console.log("check");
+                        console.log(runCheckBox.checkedState);
+                        console.log(runCheckBox.checked);
+
+                        mediator.insertPost(title, date, content, reaction, weight, calories, run, rootRectangle.photos);
                         mainStack.pop();
                     }
                 }

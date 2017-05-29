@@ -15,6 +15,8 @@ Rectangle {
     property string content;
     property string reaction;
     property int weight;
+    property int calories;
+    property bool run;
     property var photos: []
 
     ListModel {
