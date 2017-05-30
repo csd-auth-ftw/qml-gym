@@ -24,11 +24,6 @@ Rectangle {
     }
 
     Component {
-        id: comp_statsView
-        StatsView {}
-    }
-
-    Component {
         id: postDelegate
 
         Item {
@@ -180,7 +175,7 @@ Rectangle {
             imgSrc: "icons/stats_black.png"
 
             onClicked: {
-                mainStack.push(comp_statsView);
+
             }
         }
 

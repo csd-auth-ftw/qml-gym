@@ -7,7 +7,7 @@
                 "images/Squat Jump1.png",
                 "images/Squat Jump2.png"
             ],
-            "preperation": "Stand with your feet shoulder width apart.",
+            "preparation": "Stand with your feet shoulder width apart.",
             "execution": "Bend down to a squat position and as your come up jump up in the air.As you land bend down to a squat position again."
         },
         {
@@ -17,7 +17,7 @@
                 "images/180 Squat Jump1.png",
                 "images/180 Squat Jump2.png"
             ],
-            "preperation": "Stand with your feet shoulder width apart.",
+            "preparation": "Stand with your feet shoulder width apart.",
             "execution": "Bend down to a squat positionj and as you come up jump up in the air and spinnign aroud 181 degrees.As you land down to a squat position again."
         },
         {
@@ -29,7 +29,7 @@
                 "images/Sumo Squat Leg Raise3.png",
                 "images/Sumo Squat Leg Raise4.png"
             ],
-            "preperation": "Stand with your feet 4-6 inches wider than your shoulders,with your toes pointed out at a 45 degree angle.",
+            "preparation": "Stand with your feet 4-6 inches wider than your shoulders,with your toes pointed out at a 45 degree angle.",
             "execution": "While keeping your back straight descend slowly by bending as the kness and hips as if you are sitting down (squatting).When you are returning to starting position raise one leg up."
         },
         {
@@ -38,7 +38,7 @@
             "images": [
                 "images/Cross Lunges1.png"
             ],
-            "preperation": "Stand with your feet shoulder apart.",
+            "preparation": "Stand with your feet shoulder apart.",
             "execution": "Perform a rear lunge by stepping back with one foot and flexing the hips and front knee.Push forward to return to your starting position."
         },
         {
@@ -48,7 +48,7 @@
                 "images/Calf Raise,Single Leg R+L1.png",
                 "images/Calf Raise,Single Leg R+L2.png"
             ],
-            "preperation": "Do this exercise while holding on to a bar or rack with your hand.Place the front part of one foot on a an exercise step with your heel hanging off.Raiuse your other foot up and cross it behind your other calf.",
+            "preparation": "Do this exercise while holding on to a bar or rack with your hand.Place the front part of one foot on a an exercise step with your heel hanging off.Raiuse your other foot up and cross it behind your other calf.",
             "execution": "Keeping your leg that is supporting you straight,flex your calf and raise yourself as high as you can,and then lower to start position and repeat."
         },
         {
@@ -58,7 +58,7 @@
                 "images/Dumbbell Calf Raise,Seated,Single Leg R+L1.png",
                 "images/Dumbbell Calf Raise,Seated,Single Leg R+L2.png"
             ],
-            "preperation": "Sit down on a flat bench with an exercise step about a foot in front of you.Place the from of your foot on the step and rest a dumbbell on top of it.",
+            "preparation": "Sit down on a flat bench with an exercise step about a foot in front of you.Place the from of your foot on the step and rest a dumbbell on top of it.",
             "execution": "Breathe out and raise your heel as high as possible as you exhale.Slowly return to start position while streaching as far as down as your can.Repeat and switch legs once you finish your set."
         },
         {
@@ -68,7 +68,7 @@
                 "images/Jumping Jacks1.png",
                 "images/Jumping Jacks2.png"
             ],
-            "preperation": "Stand with feet together,knees slightly bent and arms to sides.",
+            "preparation": "Stand with feet together,knees slightly bent and arms to sides.",
             "execution": "Jump while raising arms and separating legs to sides.Land on forefoot with legs apart arms overhead.Jump again while lower arms and returning legs to midline."
         },
         {
@@ -78,7 +78,7 @@
                 "images/Jumping Rope1.png",
                 "images/Jumping Rope2.png"
             ],
-            "preperation": "Stand with your feet together holding the rope.",
+            "preparation": "Stand with your feet together holding the rope.",
             "execution": "Spin the rope and jump up as it approaches your feet."
         },
         {
@@ -88,7 +88,7 @@
                 "images/Running1.png",
                 "images/Running2.png"
             ],
-            "preperation": "Start with a walk and gradually speed up until you are moving at a fast,steady pace.",
+            "preparation": "Start with a walk and gradually speed up until you are moving at a fast,steady pace.",
             "execution": ""
         },
         {
@@ -98,7 +98,7 @@
                 "images/Superman1.png",
                 "images/Superman2.png"
             ],
-            "preperation": "Lie ace down with your legs straight and your arms forward and raised.",
+            "preparation": "Lie ace down with your legs straight and your arms forward and raised.",
             "execution": "Lift your legs and upper torso off the ground.Hold,then lower and repeat."
         },
         {
@@ -108,7 +108,7 @@
                 "images/Bent Over Dumbbell Forward Rows1.png",
                 "images/Bent Over Dumbbell Forward Rows2.png"
             ],
-            "preperation": "Stand with your feet shoulder width apart,holding a dumbbell in each hand and bending forward.",
+            "preparation": "Stand with your feet shoulder width apart,holding a dumbbell in each hand and bending forward.",
             "execution": "Keeping your back straight,pull the dumbbell back towards your midsection.Slowly lower,and repeat."
         },
         {
@@ -118,7 +118,7 @@
                 "images/Reverse Snow Angels1.png",
                 "images/Reverse Snow Angels2.png"
             ],
-            "preperation": "Lie down on the floor with your hands straight out and off the floor.",
+            "preparation": "Lie down on the floor with your hands straight out and off the floor.",
             "execution": "Using your back,move your arms in a circular motion to touch your hips.Extend back to a straight position."
         },
         {
@@ -128,7 +128,7 @@
                 "images/Bent Over Dumbbell Rows1.png",
                 "images/Bent Over Dumbbell Rows2.png"
             ],
-            "preperation": "Stand with your feet shoulder width apart,holding a dumbbell in each hand and bending forward.",
+            "preparation": "Stand with your feet shoulder width apart,holding a dumbbell in each hand and bending forward.",
             "execution": "Keeping your back straight,pull the dumbbels up t owards your shoulders.Slowly lower and repeat."
         },
         {
@@ -138,7 +138,7 @@
                 "images/Hip Hinge1.png",
                 "images/Hip Hinge2.png"
             ],
-            "preperation": "Stand with your feet shoulder width apart.",
+            "preparation": "Stand with your feet shoulder width apart.",
             "execution": "keeping your back straight bend forward,while keeping a slight bend in your knees.Slowly return to your starting position while exhaling."
         },
         {
@@ -148,7 +148,7 @@
                 "images/Crunch1.png",
                 "images/Crunch2.png"
             ],
-            "preperation": "Lie on your back with your knees bent and feel flat on the floor, hip-width apart.Place your hands behind your head without pulling on your neck.",
+            "preparation": "Lie on your back with your knees bent and feel flat on the floor, hip-width apart.Place your hands behind your head without pulling on your neck.",
             "execution": "Curl up and forward so that your head, neck, and shoulder blades lift off the floor and then lower slowly back down and repeat" 
         },
         {
@@ -158,7 +158,7 @@
                 "images/Bicycle Crunch1.png",
                 "images/Bicycle Crunch2.png"
             ],
-            "preperation": "Lie on your floor with your legs straight out and hands behind your head.",
+            "preparation": "Lie on your floor with your legs straight out and hands behind your head.",
             "execution": "Raise your legs and touch your right elbow to your knee, while extending your right leg, creating a motion like you are on a bicycle." 
         },
         {
@@ -168,7 +168,7 @@
                 "images/Weighted Situps1.png",
                 "images/Weighted Situps2.png"
             ],
-            "preperation": "Lay back on a flat bench while holding a plate weight against your chest.",
+            "preparation": "Lay back on a flat bench while holding a plate weight against your chest.",
             "execution": "With your head pointing straight and forward, raise your body up until you are upright, lifting your shoulders away from the bench. Roll back down to the starting position and repeat."
         },
         {
@@ -178,7 +178,7 @@
                 "images/Pushup, Normal Grip1.png",
                 "images/Pushup, Normal Grip2.png"
             ],
-            "preperation": "Lie on the floor face down with your hands just wider than shoulder length apart, while holding your body off the ground with your arms extended.",
+            "preparation": "Lie on the floor face down with your hands just wider than shoulder length apart, while holding your body off the ground with your arms extended.",
             "execution": "Inhale and lower yourself downward until your chest nearly touches the floor.Exhare, return to starting position and repeat."
         },
         {
@@ -188,7 +188,7 @@
                 "images/Decline Pushup, Normal Grip1.png",
                 "images/Decline Pushup, Normal Grip2.png"
             ],
-            "preperation": "With your hands at about shoulder width apart, brace yourself in a push up position with your legs resting on an exercise step, bench or box.",
+            "preparation": "With your hands at about shoulder width apart, brace yourself in a push up position with your legs resting on an exercise step, bench or box.",
             "execution": "Inhale and lower yourself downward until your chest nearly touches the floor. Exhare, retuern to starting position and repeat."
         },
         {
@@ -198,17 +198,17 @@
                 "images/Dumbbell Press, Normal Grip1.png",
                 "images/Dumbbell Press, Normal Grip2.png"
             ],
-            "preperation": "Lie down on a flat bench with a dumbbell in each hand resting on top of your thighs, with your palms facing each other. Use your thighs to lift up the dumbbells one at a time so they are over your chest, shoulder width apart.",
+            "preparation": "Lie down on a flat bench with a dumbbell in each hand resting on top of your thighs, with your palms facing each other. Use your thighs to lift up the dumbbells one at a time so they are over your chest, shoulder width apart.",
             "execution": "Brathe out and push the dumbbells up using your chest."
         },
         {
             "title": "Skipping",
             "category": "Cardio",
             "images": [
-                "images/skipping1.png",
-                "images/skipping2.png"
+                "images/Skipping1.png",
+                "images/Skipping2.png"
             ],
-            "preperation": "Stand with your feet together in a comfortable position.",
+            "preparation": "Stand with your feet together in a comfortable position.",
             "execution": "Skip by alternating knees, similar or running in place."
         },
         {
@@ -218,17 +218,17 @@
                 "images/Bicycle Machine1.png",
                 "images/Bicycle Machine2.png"
             ],
-            "preperation": "Sit down on the exercise bike, hold the grips and select quick start or enter program.",
+            "preparation": "Sit down on the exercise bike, hold the grips and select quick start or enter program.",
             "execution": "Pedal forward as you would on a bike while gripping the handles."
         },
         {
             "title": "Dumbbell Biceps Curl, Starting, Underhand Grip",
             "category": "Biceps",
             "images": [
-                "images/Dumbbell Biceps Curl, Starting, Underhand Grip1.png",
-                "images/Dumbbell Biceps Curl, Starting, Underhand Grip2.png"
+                "images/Dumbbell Biceps Curl, Standing, Underhand Grip1.png",
+                "images/Dumbbell Biceps Curl, Standing, Underhand Grip2.png"
             ],
-            "preperation": "Stand up straight with a dumbbell in your desired grip, while keeping your elbows close to your sides.",
+            "preparation": "Stand up straight with a dumbbell in your desired grip, while keeping your elbows close to your sides.",
             "execution": "Keep your upper arms still, exhale, and curl the weights upwards, while contracting your biceps. Lower the weights to starting position and repeat."
         },
         {
@@ -238,7 +238,7 @@
                 "images/Dumbbell Biceps Curl, On Knee, Underhand Grip R+L1.png",
                 "images/Dumbbell Biceps Curl, On Knee, Underhand Grip R+L2.png"
             ],
-            "preperation": "Sit on one of a bench, hold one dumbbell in one hand with your palm facing up and place that same elbow (extended) against the front of your thigh.",
+            "preparation": "Sit on one of a bench, hold one dumbbell in one hand with your palm facing up and place that same elbow (extended) against the front of your thigh.",
             "execution": "Raise the dumbbell until it reaches shoulder height and slowly lower it back down. Repeat and switch arms after you complete a set."
         },
         {
@@ -248,7 +248,7 @@
                 "images/Bodyweight Pull Up, Normal Grip1.png",
                 "images/Bodyweight Pull Up, Normal Grip2.png"
             ],
-            "preperation": "Hold on to the pull up bar using the neutral grip handles (parallel bars) and grip them with your palms facing each other.Hang there with your body extended.",
+            "preparation": "Hold on to the pull up bar using the neutral grip handles (parallel bars) and grip them with your palms facing each other.Hang there with your body extended.",
             "execution": "Exhale as tou pull yourself up until your neck reaches the height of your hands.Ingale as you lower your body until your arms and shoulders are extended and repeat."
         },
         {
@@ -258,7 +258,7 @@
                 "images/Squat1.png",
                 "images/Squat2.png"
             ],
-            "preperation": "Stand with your feed a little wider than shoulder width apart.",
+            "preparation": "Stand with your feed a little wider than shoulder width apart.",
             "execution": "Squat down to a 90 degree angle, keeping your back straight. Return to start position and repeat."
         },
         {
@@ -268,7 +268,7 @@
                 "images/Dumbbell Iron Cross1.png",
                 "images/Dumbbell Iron Cross2.png"
             ],
-            "preperation": "Stand with your feet shoulder width apart, holding a dumbbell in each hand. With your palms facing forward, outstretch your arms to the side making a letter T.",
+            "preparation": "Stand with your feet shoulder width apart, holding a dumbbell in each hand. With your palms facing forward, outstretch your arms to the side making a letter T.",
             "execution": "Keeping a straight back, bend down at the knees as if you were sitting down in a chair. While you are descending, bring your arms in front of you until tour hands are together and facing each other. Return and repeat."
         }
     ]

@@ -25,21 +25,22 @@
         <file>reactions/sad.png</file>
         <file>reactions/wow.png</file>
         <file>reactions/yay.png</file>
-        <file>workouts/images/180 Squat Jump1.PNG</file>
-        <file>workouts/images/180 Squat Jump2.PNG</file>
-        <file>workouts/images/Bent Over Dumbbell Forward Rows1.PNG</file>
-        <file>workouts/images/Bent Over Dumbbell Forward Rows2.PNG</file>
-        <file>workouts/images/Bent Over Dumbbell Rows1.PNG</file>
-        <file>workouts/images/Bent Over Dumbbell Rows2.PNG</file>
+        <file>workouts/workouts.json</file>
+        <file>workouts/images/180 Squat Jump1.png</file>
+        <file>workouts/images/180 Squat Jump2.png</file>
+        <file>workouts/images/Bent Over Dumbbell Forward Rows1.png</file>
+        <file>workouts/images/Bent Over Dumbbell Forward Rows2.png</file>
+        <file>workouts/images/Bent Over Dumbbell Rows1.png</file>
+        <file>workouts/images/Bent Over Dumbbell Rows2.png</file>
         <file>workouts/images/Bicycle Crunch1.png</file>
         <file>workouts/images/Bicycle Crunch2.png</file>
         <file>workouts/images/Bicycle Machine1.png</file>
         <file>workouts/images/Bicycle Machine2.png</file>
         <file>workouts/images/Bodyweight Pull Up, Normal Grip1.png</file>
         <file>workouts/images/Bodyweight Pull Up, Normal Grip2.png</file>
-        <file>workouts/images/Calf Raise,Single Leg R+L1.PNG</file>
-        <file>workouts/images/Calf Raise,Single Leg R+L2.PNG</file>
-        <file>workouts/images/Cross Lunges1.PNG</file>
+        <file>workouts/images/Calf Raise,Single Leg R+L1.png</file>
+        <file>workouts/images/Calf Raise,Single Leg R+L2.png</file>
+        <file>workouts/images/Cross Lunges1.png</file>
         <file>workouts/images/Crunch1.png</file>
         <file>workouts/images/Crunch2.png</file>
         <file>workouts/images/Decline Pushup, Normal Grip1.png</file>
@@ -48,39 +49,39 @@
         <file>workouts/images/Dumbbell Biceps Curl, On Knee, Underhand Grip R+L2.png</file>
         <file>workouts/images/Dumbbell Biceps Curl, Standing, Underhand Grip1.png</file>
         <file>workouts/images/Dumbbell Biceps Curl, Standing, Underhand Grip2.png</file>
-        <file>workouts/images/Dumbbell Calf Raise,Seated,Single Leg R+L1.PNG</file>
-        <file>workouts/images/Dumbbell Calf Raise,Seated,Single Leg R+L2.PNG</file>
+        <file>workouts/images/Dumbbell Calf Raise,Seated,Single Leg R+L1.png</file>
+        <file>workouts/images/Dumbbell Calf Raise,Seated,Single Leg R+L2.png</file>
         <file>workouts/images/Dumbbell Iron Cross1.png</file>
         <file>workouts/images/Dumbbell Iron Cross2.png</file>
         <file>workouts/images/Dumbbell Press, Normal Grip1.png</file>
         <file>workouts/images/Dumbbell Press, Normal Grip2.png</file>
-        <file>workouts/images/Hip Hinge1.PNG</file>
-        <file>workouts/images/Hip HInge2.PNG</file>
-        <file>workouts/images/Jumping Jacks1.PNG</file>
-        <file>workouts/images/Jumping Jacks2.PNG</file>
-        <file>workouts/images/Jumping Rope1.PNG</file>
-        <file>workouts/images/Jumping Rope2.PNG</file>
+        <file>workouts/images/Hip Hinge1.png</file>
+        <file>workouts/images/Hip HInge2.png</file>
+        <file>workouts/images/Jumping Jacks1.png</file>
+        <file>workouts/images/Jumping Jacks2.png</file>
+        <file>workouts/images/Jumping Rope1.png</file>
+        <file>workouts/images/Jumping Rope2.png</file>
         <file>workouts/images/Pushup, Normal Grip1.png</file>
         <file>workouts/images/Pushup, Normal Grip2.png</file>
-        <file>workouts/images/Reverse Snow Angels1.PNG</file>
-        <file>workouts/images/Reverse Snow Angels2.PNG</file>
-        <file>workouts/images/Running1.PNG</file>
-        <file>workouts/images/Running2.PNG</file>
+        <file>workouts/images/Reverse Snow Angels1.png</file>
+        <file>workouts/images/Reverse Snow Angels2.png</file>
+        <file>workouts/images/Running1.png</file>
+        <file>workouts/images/Running2.png</file>
         <file>workouts/images/Skipping1.png</file>
         <file>workouts/images/Skipping2.png</file>
-        <file>workouts/images/Squat Jump1.PNG</file>
-        <file>workouts/images/Squat Jump2.PNG</file>
+        <file>workouts/images/Sqaut1.png</file>
+        <file>workouts/images/Squat Jump1.png</file>
+        <file>workouts/images/Squat Jump2.png</file>
         <file>workouts/images/Squat1.png</file>
-        <file>workouts/images/Squat2.PNG</file>
-        <file>workouts/images/Sumo Squat Leg Raise1.PNG</file>
-        <file>workouts/images/Sumo Squat Leg Raise2.PNG</file>
-        <file>workouts/images/Sumo Squat Leg Raise3.PNG</file>
-        <file>workouts/images/Sumo Squat Leg Raise4.PNG</file>
-        <file>workouts/images/Superman1.PNG</file>
-        <file>workouts/images/Superman2.PNG</file>
+        <file>workouts/images/Squat2.png</file>
+        <file>workouts/images/Sumo Squat Leg Raise1.png</file>
+        <file>workouts/images/Sumo Squat Leg Raise2.png</file>
+        <file>workouts/images/Sumo Squat Leg Raise3.png</file>
+        <file>workouts/images/Sumo Squat Leg Raise4.png</file>
+        <file>workouts/images/Superman1.png</file>
+        <file>workouts/images/Superman2.png</file>
         <file>workouts/images/Weighted Situps1.png</file>
         <file>workouts/images/Weighted Situps2.png</file>
-        <file>workouts/workouts.json</file>
-        <file>StatsView.qml</file>
+        <file>icons/black_filter.png</file>
     </qresource>
 </RCC>
