@@ -9,14 +9,31 @@ Window {
     height: 480
     title: qsTr("iGym")
 
+    /** top level views components **/
     Component {
-        id: mainComponent
+        id: mainMenuViewComponent
+        MainMenu {}
+    }
+
+    Component {
+        id: workoutListViewComponent
         WorkoutListView {}
     }
 
+    Component {
+        id: workoutViewComponent
+        WorkoutView {}
+    }
+
+    Component {
+        id: postListViewComponent
+        PostListView{}
+    }
+
+    /** the main view stack **/
     StackView {
         id: mainStack
-        initialItem: mainComponent
+        initialItem: workoutListViewComponent
         anchors.fill: parent
     }
 }

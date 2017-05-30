@@ -1,11 +1,9 @@
 import QtQuick 2.0
-import QtQuick 2.2
+import QtQuick 2.7
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Dialogs 1.1
-
-
 
 Rectangle {
     id: workoutListRootRect
@@ -17,13 +15,10 @@ Rectangle {
     ListModel {
         id: workoutsModel
     }
-    Component {
-        id: comp_WorkoutView
-        WorkoutView {}
-    }
 
     function refreshWorkouts() {
         workoutsModel.clear();
+
         var filters = [];
         if(cardioCB.checkedState > 0) filters.push("cardio");
         if(calvesCB.checkedState > 0) filters.push("calves");
@@ -35,18 +30,25 @@ Rectangle {
         if(bicepsCB.checkedState > 0) filters.push("biceps");
 
         for (var i in workoutData.workouts) {
-            var cat = workoutData.workouts[i].category.toLowerCase().trim();
+            var workout = workoutData.workouts[i];
+            var category = workout.category.toLowerCase().trim();
 
-            if(filters.indexOf(cat) >= 0) {
-                workoutsModel.append(workoutData.workouts[i])
-            }
+            if(filters.indexOf(category) >= 0)
+                workoutsModel.append(workout)
         }
     }
 
+    function setAllCheckboxes(v) {
+        cardioCB.checked = v;
+        calvesCB.checked = v;
+        quandsCB.checked = v;
+        quadsCB.checked = v;
+        lowerbackCB.checked = v;
+        absCB.checked = v;
+        chestCB.checked = v;
+        bicepsCB.checked = v;
 
-    Component {
-        id: mainMenuComp
-        MainMenu {}
+        refreshWorkouts();
     }
 
     Component {
@@ -77,7 +79,7 @@ Rectangle {
                         width: parent.width * 0.8
                         height: parent.height * 0.8
                         fillMode: Image.PreserveAspectFit
-                        source: "workouts/"+images.get(0).image
+                        source: "workouts/" + images.get(0).image
                     }
 
                 }
@@ -88,23 +90,12 @@ Rectangle {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     Layout.preferredWidth: parent.width * 0.7
-
-                    //        Layout.preferredHeight: postRow.height
-                    //        height:postRow.height
                     color: "#fafafa"
 
                     Text {
                         id: titleRow
                         Layout.preferredHeight: postRow.height
                         Layout.fillHeight: true
-
-
-                        // anchors.top: parent.top
-                        //  anchors.left: parent.left
-                        //  anchors.right: parent.right
-                        //   anchors.margins: 10
-
-
                         anchors.verticalCenter: parent.verticalCenter
 
                         wrapMode: Text.WordWrap
@@ -124,7 +115,7 @@ Rectangle {
 
                         onClicked: {
                             var intent = {
-                                "item": comp_WorkoutView,
+                                "item": workoutViewComponent,
                                 "properties": {
                                     "postIndex": index,
                                     "title": title,
@@ -139,8 +130,6 @@ Rectangle {
                         }
                     }
                 }
-                //end of text
-
             }
 
             // border bottom
@@ -170,9 +159,7 @@ Rectangle {
             anchors.right: parent.right
             imgSrc: "icons/menu_black.png"
 
-            onClicked: {
-                mainStack.push(mainMenuComp)
-            }
+            onClicked: mainStack.push(mainMenuViewComponent)
         }
 
     }
@@ -180,97 +167,117 @@ Rectangle {
     Rectangle {
         id : filterRect
         color: "#888"
-        anchors.top:workoutListToolbar.bottom
-        anchors.left : parent.left
-        anchors.right : parent.right
-        height:parent.height  * 0.2
+        anchors.top: workoutListToolbar.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: parent.height  * 0.3
         visible: false
         clip: true
 
         Flickable{
             anchors.fill : parent
             contentWidth: parent.width
-            contentHeight: parent.height +10
+            contentHeight: filterContent.height
             interactive: true
             boundsBehavior: Flickable.StopAtBounds
 
+            Column {
+                id: filterContent
+                width: parent.width
 
-            Row
-            {
-                anchors.fill : parent
+                spacing: 10
 
-                Column{
-                    width: parent.width * 0.5
-                    height: parent.height
+                Row {
+                    padding: 10
+                    width: parent.width
 
-                    CheckBox{
-                        id : cardioCB
-                        text : "Cardio"
-                        checked: true
-                        onCheckedStateChanged: refreshWorkouts()
+                    Column{
+                        width: parent.width * 0.5
+
+                        CheckBox{
+                            id : cardioCB
+                            text : "Cardio"
+                            checked: true
+                            onCheckedStateChanged: refreshWorkouts()
+                        }
+
+                        CheckBox{
+                            id : calvesCB
+                            text : "Calves"
+                            checked: true
+                            onCheckedStateChanged: refreshWorkouts()
+
+                        }
+                        CheckBox{
+                            id :quadsCB
+                            text : "Quads"
+                            checked: true
+                            onCheckedStateChanged: refreshWorkouts()
+
+                        }
+
+                        CheckBox{
+                            id :quandsCB
+                            text : "Quands"
+                            checked: true
+                            onCheckedStateChanged: refreshWorkouts()
+
+                        }
+
                     }
 
-                    CheckBox{
-                        id : calvesCB
-                        text : "Calves"
-                        checked: true
-                        onCheckedStateChanged: refreshWorkouts()
+
+                    Column {
+                        width: parent.width * 0.5
+
+
+                        CheckBox{
+                            id : lowerbackCB
+                            text : "Lower Back"
+                            checked: true
+                            onCheckedStateChanged: refreshWorkouts()
+
+                        }
+
+                        CheckBox{
+                            id : absCB
+                            text : "Abs"
+                            checked: true
+                            onCheckedStateChanged: refreshWorkouts()
+
+                        }
+                        CheckBox{
+                            id :chestCB
+                            text : "Chest"
+                            checked: true
+                            onCheckedStateChanged: refreshWorkouts()
+
+                        }
+                        CheckBox{
+                            id :bicepsCB
+                            text : "Biceps"
+                            checked: true
+                            onCheckedStateChanged: refreshWorkouts()
+
+                        }
 
                     }
-                    CheckBox{
-                        id :quadsCB
-                        text : "Quads"
-                        checked: true
-                        onCheckedStateChanged: refreshWorkouts()
-
-                    }
-
-                    CheckBox{
-                        id :quandsCB
-                        text : "Quands"
-                        checked: true
-                        onCheckedStateChanged: refreshWorkouts()
-
-                    }
-
                 }
 
+                Row {
+                    padding: 10
+                    spacing: 10
+                    width: parent.width
 
-                Column{
-                    width: parent.width * 0.5
-                    height: parent.height
-
-
-                    CheckBox{
-                        id : lowerbackCB
-                        text : "Lower Back"
-                        checked: true
-                        onCheckedStateChanged: refreshWorkouts()
-
+                    Button {
+                        text: "Clear All"
+                        onClicked: setAllCheckboxes(false)
                     }
 
-                    CheckBox{
-                        id : absCB
-                        text : "Abs"
-                        checked: true
-                        onCheckedStateChanged: refreshWorkouts()
-
+                    Button {
+                        text: "Select All"
+                        onClicked: setAllCheckboxes(true)
                     }
-                    CheckBox{
-                        id :chestCB
-                        text : "Chest"
-                        checked: true
-                        onCheckedStateChanged: refreshWorkouts()
-
-                    }
-                    CheckBox{
-                        id :bicepsCB
-                        text : "Biceps"
-                        checked: true
-                        onCheckedStateChanged: refreshWorkouts()
-
-                    }
-
                 }
             }
         }

@@ -4,9 +4,9 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    mediator.cpp \
+    postmodel.cpp \
     post.cpp \
-    postmodel.cpp
+    mediator.cpp
 
 RESOURCES += qml.qrc
 
@@ -33,6 +33,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    mediator.h \
+    postmodel.h \
     post.h \
-    postmodel.h
+    mediator.h

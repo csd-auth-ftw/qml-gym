@@ -1,21 +1,22 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>AddPostView.qml</file>
-        <file>CustomToolbar.qml</file>
-        <file>Ellipse.qml</file>
-        <file>MainMenu.qml</file>
-        <file>PostField.qml</file>
-        <file>PostListView.qml</file>
-        <file>PostView.qml</file>
-        <file>ReactionImage.qml</file>
-        <file>Separator.qml</file>
-        <file>ToolImageButton.qml</file>
-        <file>WorkoutListView.qml</file>
-        <file>Workouts.qml</file>
         <file>WorkoutView.qml</file>
+        <file>WorkoutListView.qml</file>
+        <file>ToolImageButton.qml</file>
+        <file>StatsView.qml</file>
+        <file>Separator.qml</file>
+        <file>ReactionImage.qml</file>
+        <file>PostView.qml</file>
+        <file>PostListView.qml</file>
+        <file>PostField.qml</file>
+        <file>MainMenu.qml</file>
+        <file>Ellipse.qml</file>
+        <file>CustomToolbar.qml</file>
+        <file>AddPostView.qml</file>
         <file>icons/add_black.png</file>
         <file>icons/back_black.png</file>
+        <file>icons/black_filter.png</file>
         <file>icons/delete_black.png</file>
         <file>icons/edit_black.png</file>
         <file>icons/menu_black.png</file>
@@ -25,7 +26,6 @@
         <file>reactions/sad.png</file>
         <file>reactions/wow.png</file>
         <file>reactions/yay.png</file>
-        <file>workouts/workouts.json</file>
         <file>workouts/images/180 Squat Jump1.png</file>
         <file>workouts/images/180 Squat Jump2.png</file>
         <file>workouts/images/Bent Over Dumbbell Forward Rows1.png</file>
@@ -69,7 +69,7 @@
         <file>workouts/images/Running2.png</file>
         <file>workouts/images/Skipping1.png</file>
         <file>workouts/images/Skipping2.png</file>
-        <file>workouts/images/Sqaut1.png</file>
+        <file>workouts/images/Sqaut1.PNG</file>
         <file>workouts/images/Squat Jump1.png</file>
         <file>workouts/images/Squat Jump2.png</file>
         <file>workouts/images/Squat1.png</file>
@@ -82,6 +82,6 @@
         <file>workouts/images/Superman2.png</file>
         <file>workouts/images/Weighted Situps1.png</file>
         <file>workouts/images/Weighted Situps2.png</file>
-        <file>icons/black_filter.png</file>
+        <file>workouts/workouts.json</file>
     </qresource>
 </RCC>
