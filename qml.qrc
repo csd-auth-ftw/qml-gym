@@ -83,5 +83,14 @@
         <file>workouts/images/Weighted Situps1.png</file>
         <file>workouts/images/Weighted Situps2.png</file>
         <file>workouts/workouts.json</file>
+        <file>icons/fitness_black.png</file>
+        <file>icons/log_black.png</file>
+        <file>icons/log_black_2x.png</file>
+        <file>icons/fitness_black_2x.png</file>
+        <file>icons/left_black.png</file>
+        <file>icons/right_black.png</file>
+        <file>icons/left_black_small.png</file>
+        <file>icons/right_black_small.png</file>
+        <file>HighlightedText.qml</file>
     </qresource>
 </RCC>

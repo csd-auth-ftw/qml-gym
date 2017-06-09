@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick 2.2
+import QtQuick 2.7
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Styles 1.4
@@ -11,47 +11,12 @@ Rectangle {
     anchors.fill: parent
 
     property int postIndex: -1;
+    property int imageIndex;
     property string title;
     property string category;
     property var photos: []
     property string preparation;
     property string execution;
-
-
-
-    ListModel {
-        id: photosModel
-    }
-
-    Component {
-        id: pathPhotoDelegate
-
-        Column {
-            spacing: 2
-            scale: PathView.iconScale
-            opacity: PathView.iconOpacity
-            rotation: PathView.itemRotation
-
-            MouseArea {
-                width:64
-                height:64
-
-                Image {
-                    width: parent.width
-                    height: parent.height
-                    source: icon
-                    asynchronous: true
-                    fillMode: Image.PreserveAspectFit
-                }
-
-                onClicked: {
-                    photosPathView.currentIndex = index
-                    postCoverImage.source = workoutViewRootRect.photos[index]
-                }
-            }
-
-        }
-    }
 
     CustomToolbar {
         id: mainToolBar
@@ -59,112 +24,109 @@ Rectangle {
 
         ToolImageButton {
             id: goBackButton
-            anchors.right: editButton.left
+            anchors.right: parent.right
             imgSrc: "icons/back_black.png"
 
-            onClicked: {
-                mainStack.pop();
-            }
-        }
-
-        ToolImageButton {
-            id: editButton
-            anchors.right: deleteButton.left
-            imgSrc: "icons/edit_black.png"
-
-            onClicked: {
-
-            }
-        }
-
-        ToolImageButton {
-            id: deleteButton
-            anchors.right: parent.right
-            imgSrc: "icons/delete_black.png"
-
-            onClicked: {
-                mediator.deletePost(postIndex);
-                mainStack.pop();
-            }
+            onClicked: mainStack.pop()
         }
     }
 
-    Flickable {
+    Rectangle {
+        id: contentWrapper
+        width: parent.width > 1200 ? 1080: parent.width * 0.9
         anchors.top: mainToolBar.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
         anchors.bottom: parent.bottom
-        contentWidth: parent.width
-        contentHeight: parent.height + 40 // TODO
-        interactive: true
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
         clip: true
-        boundsBehavior: Flickable.StopAtBounds
 
-        Column {
-            id: mainColumn
+        Flickable {
             anchors.fill: parent
+            contentWidth: parent.width
+            contentHeight: mainColumn.height + 40 // TODO
+            interactive: true
+            boundsBehavior: Flickable.StopAtBounds
 
-            Image {
-                id: postCoverImage
-                visible: false
-                fillMode: Image.PreserveAspectCrop
-                height: 200
+            Column {
+                id: mainColumn
                 width: parent.width
-            }
+                spacing: 20
 
-            PathView {
-                id: photosPathView
-                visible: false
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.width * 0.75
-                height: 120
-                model: photosModel
-                delegate: pathPhotoDelegate
-                path: Ellipse {
-                    width: photosPathView.width
-                    height: photosPathView.height * 0.85
+                Image {
+                    id: postCoverImage
+                    fillMode: Image.PreserveAspectFit
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    height: 300
+                    width: parent.width
+                }
+
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    padding: 10
+                    spacing: 5
+
+                    Button {
+                        iconSource: "icons/left_black_small.png"
+                        onClicked: {
+                            imageIndex = (imageIndex-1) < 0 ? photos.length - 1: imageIndex-1;
+                            postCoverImage.source = "workouts/" + photos[imageIndex].image;
+                        }
+                    }
+
+                    Button {
+                        iconSource: "icons/right_black_small.png"
+                        onClicked: {
+                            imageIndex = (imageIndex+1) % photos.length;
+                            postCoverImage.source = "workouts/" + photos[imageIndex].image;
+                        }
+                    }
+                }
+
+                Text {
+                    text: title
+                    width: parent.width * 0.8
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    font.pointSize: 24
+                    wrapMode: Text.WordWrap
+                    font.weight: Font.Bold
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                HighlightedText {
+                    text: "preparation"
+                    textPadding: 10
+                }
+
+                Text {
+                    text: workoutViewRootRect.preparation
+                    wrapMode: Text.Wrap
+                    width: parent.width
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                HighlightedText {
+                    text: "execution"
+                    textPadding: 10
+                }
+
+                Text {
+                    text: workoutViewRootRect.execution
+                    width: parent.width
+                    wrapMode: Text.Wrap
+                    horizontalAlignment: Text.AlignHCenter
                 }
             }
-
-            Text {
-                text: title
-                width: parent.width * 0.8
-                anchors.margins: 20
-                anchors.horizontalCenter: parent.horizontalCenter
-                font.pointSize: 22
-                wrapMode: Text.WordWrap
-                font.weight: Font.Bold
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Image {
-                width: 35
-                height: 35
-                fillMode: Image.PreserveAspectFit
-                anchors.margins: 20
-                anchors.topMargin: 0
-                anchors.horizontalCenter: parent.horizontalCenter
-                source: "reactions/angry.png"
-            }
-
         }
+
     }
+
 
     Component.onCompleted: {
         if (postIndex < 0)
             return mainStack.pop();
 
-        if (photos.length > 0) {
-            postCoverImage.visible = true;
-            postCoverImage.source = photos[0];
-        }
-
-        if (photos.length > 1) {
-            photosPathView.visible = true;
-
-            for (var i in photos) {
-                photosModel.append({"icon": photos[i]});
-            }
-        }
+        imageIndex = 0;
+        postCoverImage.source = "workouts/" + photos[imageIndex].image;
     }
 }

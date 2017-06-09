@@ -159,34 +159,30 @@ Rectangle {
         subtitle: "Diary posts"
         Layout.preferredWidth: parent.width
 
-        ToolImageButton {
-            id: goBackButton
-            anchors.right: statsButton.left
-            imgSrc: "icons/back_black.png"
+//        ToolImageButton {
+//            id: statsButton
+//            anchors.right: addNewButton.left
+//            imgSrc: "icons/stats_black.png"
 
-            onClicked: {
-                mainStack.pop();
-            }
-        }
+//            onClicked: {
 
-        ToolImageButton {
-            id: statsButton
-            anchors.right: addNewButton.left
-            imgSrc: "icons/stats_black.png"
-
-            onClicked: {
-
-            }
-        }
+//            }
+//        }
 
         ToolImageButton {
             id: addNewButton
-            anchors.right: parent.right
+            anchors.right: goBackButton.left
             imgSrc: "icons/add_black.png"
 
-            onClicked: {
-                mainStack.push(comp_addPostView);
-            }
+            onClicked: mainStack.push(comp_addPostView)
+        }
+
+        ToolImageButton {
+            id: goBackButton
+            anchors.right: parent.right
+            imgSrc: "icons/menu_black.png"
+
+            onClicked: mainStack.pop()
         }
 
     }

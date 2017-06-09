@@ -114,17 +114,23 @@ Rectangle {
                         cursorShape: ma.containsMouse ? Qt.PointingHandCursor: Qt.ArrowCursor
 
                         onClicked: {
+                            var photos = [];
+                            for (var i=0; i<images.count; i++)
+                                photos.push(images.get(i));
+
                             var intent = {
                                 "item": workoutViewComponent,
                                 "properties": {
                                     "postIndex": index,
                                     "title": title,
-                                    "category":category,
-                                    "photos":images,
-                                    "preparation":preparation,
-                                    "execution":execution
+                                    "category": category,
+                                    "photos": photos,
+                                    "preparation": preparation,
+                                    "execution": execution
                                 }
                             }
+
+                            console.log(JSON.stringify(images, null, 2));
 
                             mainStack.push(intent);
                         }

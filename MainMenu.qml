@@ -14,8 +14,10 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        height: parent.height*0.5
-        color: "red"
+        anchors.margins: 20
+        height: parent.height * 0.5 - anchors.margins*2
+        color: "#42f480"
+        clip: true
 
         Row {
             width: parent.width * 0.8
@@ -23,9 +25,9 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
 
             Image {
-                source: "icons/add_black.png"
-                width: 100
-                height: 100
+                source: "icons/fitness_black_2x.png"
+                width: workoutListLink.width * 0.2 > 100 ? 100: workoutListLink.width * 0.2
+                height: width
             }
 
             Text{
@@ -36,17 +38,27 @@ Rectangle {
         }
 
         MouseArea{
+            id: workoutMa
             anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: workoutMa.containsMouse ? Qt.PointingHandCursor: Qt.ArrowCursor
+
+            onEntered: workoutListLink.color = "#39ce6d"
+            onExited: workoutListLink.color = "#42f480"
+
             onClicked: mainStack.push(workoutListViewComponent)
         }
     }
 
     Rectangle  {
+        id: blogLink
         anchors.top: workoutListLink.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        color:"blue"
+        anchors.margins: 20
+        color: "#42f480"
+        clip: true
 
         Row {
             width: parent.width * 0.8
@@ -54,9 +66,9 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
 
             Image {
-                source: "icons/menu_black.png"
-                width: 100
-                height: 100
+                source: "icons/log_black_2x.png"
+                width: blogLink.width * 0.2 > 100 ? 100: blogLink.width * 0.2
+                height: width
             }
 
             Text{
@@ -69,7 +81,14 @@ Rectangle {
         }
 
         MouseArea{
+            id: postMa
             anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: postMa.containsMouse ? Qt.PointingHandCursor: Qt.ArrowCursor
+
+            onEntered: blogLink.color = "#39ce6d"
+            onExited: blogLink.color = "#42f480"
+
             onClicked: mainStack.push(postListViewComponent)
         }
     }
