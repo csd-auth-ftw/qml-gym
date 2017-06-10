@@ -58,7 +58,7 @@ Rectangle {
             width: parent.width
             height: postRow.height
             color: "#fafafa"
-
+            clip: true
 
             RowLayout {
                 id: postRow
@@ -105,7 +105,13 @@ Rectangle {
                         text: title
                     }
 
-
+                    Text {
+                        id: categoryRow
+                        anchors.top: titleRow.bottom
+                        anchors.left: titleRow.left
+                        text: category
+                        color: "#777"
+                    }
 
                     MouseArea {
                         id: ma
@@ -172,7 +178,7 @@ Rectangle {
 
     Rectangle {
         id : filterRect
-        color: "#888"
+        color: "#46664b"
         anchors.top: workoutListToolbar.bottom
         anchors.left: parent.left
         anchors.right: parent.right
@@ -198,80 +204,60 @@ Rectangle {
                     width: parent.width
 
                     Column{
+                        id: filterCol1
                         width: parent.width * 0.5
+                        spacing: 3
 
-                        CheckBox{
+                        FilterCheckBox {
                             id : cardioCB
-                            text : "Cardio"
-                            checked: true
-                            onCheckedStateChanged: refreshWorkouts()
+                            labelText: "Cardio"
                         }
 
-                        CheckBox{
+                        FilterCheckBox {
                             id : calvesCB
-                            text : "Calves"
-                            checked: true
-                            onCheckedStateChanged: refreshWorkouts()
-
-                        }
-                        CheckBox{
-                            id :quadsCB
-                            text : "Quads"
-                            checked: true
-                            onCheckedStateChanged: refreshWorkouts()
-
+                            labelText: "Calves"
                         }
 
-                        CheckBox{
-                            id :quandsCB
-                            text : "Quands"
-                            checked: true
-                            onCheckedStateChanged: refreshWorkouts()
-
+                        FilterCheckBox {
+                            id : quadsCB
+                            labelText: "Quads"
                         }
 
+                        FilterCheckBox {
+                            id : quandsCB
+                            labelText: "Quands"
+                        }
                     }
 
 
                     Column {
-                        width: parent.width * 0.5
+                        width: filterCol1.width
+                        spacing: filterCol1.spacing
 
-
-                        CheckBox{
+                        FilterCheckBox {
                             id : lowerbackCB
-                            text : "Lower Back"
-                            checked: true
-                            onCheckedStateChanged: refreshWorkouts()
-
+                            labelText: "Lower Back"
                         }
 
-                        CheckBox{
+                        FilterCheckBox {
                             id : absCB
-                            text : "Abs"
-                            checked: true
-                            onCheckedStateChanged: refreshWorkouts()
-
-                        }
-                        CheckBox{
-                            id :chestCB
-                            text : "Chest"
-                            checked: true
-                            onCheckedStateChanged: refreshWorkouts()
-
-                        }
-                        CheckBox{
-                            id :bicepsCB
-                            text : "Biceps"
-                            checked: true
-                            onCheckedStateChanged: refreshWorkouts()
-
+                            labelText: "Abs"
                         }
 
+                        FilterCheckBox {
+                            id : chestCB
+                            labelText: "Chest"
+                        }
+
+                        FilterCheckBox {
+                            id : bicepsCB
+                            labelText: "Biceps"
+                        }
                     }
                 }
 
                 Row {
-                    padding: 10
+                    padding: 5
                     spacing: 10
                     width: parent.width
 
@@ -323,7 +309,7 @@ Rectangle {
 
         }
 
-        spacing: 5
+        spacing: 2
         anchors.top: filterRect.visible ? filterRect.bottom : workoutListToolbar.bottom
         anchors.right: parent.right
         anchors.bottom: parent.bottom

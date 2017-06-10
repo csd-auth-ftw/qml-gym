@@ -6,7 +6,12 @@ ToolBar {
     property string subtitle
 
     width: parent.width
-    height: 40
+    height: 50
+    style: ToolBarStyle {
+        background: Rectangle {
+            color: "#42f480"
+        }
+    }
 
     Text {
         id: toolBarTitle

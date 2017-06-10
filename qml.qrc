@@ -92,5 +92,6 @@
         <file>icons/left_black_small.png</file>
         <file>icons/right_black_small.png</file>
         <file>HighlightedText.qml</file>
+        <file>FilterCheckBox.qml</file>
     </qresource>
 </RCC>

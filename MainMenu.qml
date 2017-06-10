@@ -23,6 +23,7 @@ Rectangle {
             width: parent.width * 0.8
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+            spacing: 20
 
             Image {
                 source: "icons/fitness_black_2x.png"
@@ -32,8 +33,7 @@ Rectangle {
 
             Text{
                 text: "Workout List"
-                height: parent.height
-                 anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenter: parent.verticalCenter
             }
         }
 
@@ -64,6 +64,7 @@ Rectangle {
             width: parent.width * 0.8
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+            spacing: 20
 
             Image {
                 source: "icons/log_black_2x.png"
@@ -72,8 +73,7 @@ Rectangle {
             }
 
             Text{
-                text: "Post List"
-                height: parent.height
+                text: "Progress Diary"
                 anchors.verticalCenter: parent.verticalCenter
             }
 
