@@ -5,9 +5,9 @@ import QtQuick.Controls 1.4
 Window {
     id: mainWindow
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("iGym")
+    width: 480
+    height: 640
+    title: qsTr("getFit - your personal workout trainer")
 
     /** top level views components **/
     Component {

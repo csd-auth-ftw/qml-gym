@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
@@ -15,9 +15,12 @@ ToolBar {
 
     Text {
         id: toolBarTitle
-        text: "iGym2"
+        text: "getFit"
         anchors.left: parent.left
-        font.pointSize: 20
+        font.pointSize: 22
+        font.bold: true
+        topPadding: 8
+        color: "#0f3a1e"
     }
 
     Text {

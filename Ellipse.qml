@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-// Ellipse (The following code has been taken from: https://wiki.qt.io/Qt_Quick_Carousel_Tutorial and it has been slightly modified)
+/** credits to https://wiki.qt.io/Qt_Quick_Carousel_Tutorial **/
 Path {
     id: p
     property real width: 200

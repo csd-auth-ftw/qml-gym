@@ -208,8 +208,17 @@ Rectangle {
 
     }
 
+//    Rectangle {
+//        id: pointsBar
+//        anchors.top: postListToolbar.bottom
+//        width: parent.width
+//        height: 30
+//        color: "blue"
+//    }
+
     ListView {
         spacing: 2
+//        anchors.top: pointsBar.bottom
         anchors.top: postListToolbar.bottom
         anchors.right: parent.right
         anchors.bottom: parent.bottom
