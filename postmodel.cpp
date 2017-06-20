@@ -2,6 +2,7 @@
 
 PostModel::PostModel(QString path)
 {
+    points = 0;
     modelFilePath = path;
     loadModel();
 }
@@ -52,7 +53,8 @@ void PostModel::insertPost(QString title, QDateTime date, QString content, QStri
     beginResetModel();
 
     Post post(title, date, content, reaction, weight, calories, run, photos);
-    postData.push_back(post);
+    postData.insert(postData.begin(), post);
+//    postData.push_back(post);
 
     endResetModel();
 }
@@ -90,6 +92,11 @@ void PostModel::deletePost(int index)
     endResetModel();
 }
 
+void PostModel::addPoints(int points)
+{
+    this->points += points;
+}
+
 void PostModel::loadModel()
 {
     cout << "Loading post model..." << endl;
@@ -98,12 +105,23 @@ void PostModel::loadModel()
     QTextStream qtxstream(&qfile);
     qfile.open(QIODevice::ReadOnly | QIODevice::Text);
 
+    points = qtxstream.readLine().toInt();
     int rows = qtxstream.readLine().toInt();
     for (int i=0; i<rows; i++)
     {
         QString title = qtxstream.readLine();
         QDateTime date = QDateTime::fromString(qtxstream.readLine(), "dd-MM-yyyy hh:mm");
-        QString content = qtxstream.readLine(); // TODO multiline content
+
+        // reads the multi row content
+        QString line, content;
+        while (true) {
+            line = qtxstream.readLine();
+            if (line == END_OF_CONTENT)
+                break;
+
+            content.append(line + "\n");
+        }
+
         QString reaction = qtxstream.readLine();
         quint16 weight = qtxstream.readLine().toInt();
         quint16 calories = qtxstream.readLine().toInt();
@@ -132,16 +150,19 @@ void PostModel::saveModel()
     QTextStream qtxstream(&qfile);
     qfile.open(QIODevice::WriteOnly | QIODevice::Text);
 
-    // write the number of rows first
+    // write the number of points
+    qtxstream << points << endl;
+
+    // write the number of rows
     qtxstream << rowCount() << endl;
 
     // write each post data
-    vector<Post>::iterator itr;
-    for (itr = postData.begin(); itr != postData.end(); itr++)
+    vector<Post>::reverse_iterator itr;
+    for (itr = postData.rbegin(); itr != postData.rend(); itr++)
     {
-        qtxstream << itr->getTitle() << endl;
+        qtxstream << itr->getTitle().trimmed() << endl;
         qtxstream << itr->getDate().toString("dd-MM-yyyy hh:mm") << endl;
-        qtxstream << itr->getContent() << endl;
+        qtxstream << itr->getContent().trimmed() << endl << END_OF_CONTENT << endl;
         qtxstream << itr->getReaction() << endl;
         qtxstream << itr->getWeight() << endl;
         qtxstream << itr->getCalories() << endl;

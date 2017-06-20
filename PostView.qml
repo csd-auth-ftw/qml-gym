@@ -1,5 +1,4 @@
-import QtQuick 2.0
-import QtQuick 2.2
+import QtQuick 2.7
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Styles 1.4
@@ -62,9 +61,7 @@ Rectangle {
             anchors.right: editButton.left
             imgSrc: "icons/back_black.png"
 
-            onClicked: {
-                mainStack.pop();
-            }
+            onClicked: mainStack.pop();
         }
 
         ToolImageButton {
@@ -73,7 +70,23 @@ Rectangle {
             imgSrc: "icons/edit_black.png"
 
             onClicked: {
+                var intent = {
+                    "item": addPostViewComponent,
+                    "properties": {
+                        "editing": true,
+                        "postIndex": postIndex,
+                        "prevTitle": title,
+                        "prevDate": date,
+                        "prevContent": content,
+                        "prevReaction": reaction,
+                        "prevWeight": weight,
+                        "prevCalories": calories,
+                        "prevRun": run,
+                        "photos": photos
+                    }
+                }
 
+                mainStack.push(intent);
             }
         }
 
@@ -89,65 +102,126 @@ Rectangle {
         }
     }
 
-    Flickable {
+    Rectangle {
+        id: contentWrapper
+        width: parent.width
         anchors.top: mainToolBar.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
         anchors.bottom: parent.bottom
-        contentWidth: parent.width
-        contentHeight: parent.height + 40 // TODO
-        interactive: true
+        anchors.horizontalCenter: parent.horizontalCenter
         clip: true
-        boundsBehavior: Flickable.StopAtBounds
 
-        Column {
-            id: mainColumn
+        Flickable {
             anchors.fill: parent
+            contentWidth: parent.width
+            contentHeight: mainColumn.height + 20
+            interactive: true
+            boundsBehavior: Flickable.StopAtBounds
 
-            Image {
-                id: postCoverImage
-                visible: false
-                fillMode: Image.PreserveAspectCrop
-                height: 200
+            Column {
+                id: mainColumn
                 width: parent.width
-            }
 
-            PathView {
-                id: photosPathView
-                visible: false
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.width * 0.75
-                height: 120
-                model: photosModel
-                delegate: pathPhotoDelegate
-                path: Ellipse {
-                    width: photosPathView.width
-                    height: photosPathView.height * 0.85
+                Image {
+                    id: postCoverImage
+                    visible: false
+                    fillMode: Image.PreserveAspectCrop
+                    height: 240
+                    width: parent.width
+                }
+
+                PathView {
+                    id: photosPathView
+                    visible: false
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.75
+                    height: 120
+                    model: photosModel
+                    delegate: pathPhotoDelegate
+                    path: Ellipse {
+                        width: photosPathView.width
+                        height: photosPathView.height * 0.85
+                    }
+                }
+
+                Separator {}
+
+                Text {
+                    text: title
+                    width: parent.width * 0.8
+                    padding: 20
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    font.pointSize: 22
+                    wrapMode: Text.WordWrap
+                    font.weight: Font.Bold
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 70
+
+                    Image {
+                        width: parent.height * 0.8
+                        height: width
+                        fillMode: Image.PreserveAspectFit
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: "reactions/" + reaction + ".png"
+                    }
+                }
+
+                Separator {}
+
+                Rectangle {
+                    width: extrasRow.width
+                    height: 40
+                    anchors.horizontalCenter: mainColumn.horizontalCenter
+
+                    Row {
+                        id: extrasRow
+                        anchors.top: parent.top
+                        anchors.topMargin: 10
+
+                        PostField {
+                            fieldIcon: "icons/photos_black_xsmall.png"
+                            fieldText: photos.length
+                            fieldWidth: 60
+                        }
+
+                        PostField {
+                            fieldIcon: "icons/weight_black_xsmall.png"
+                            fieldText: (weight < 1 ? "-": weight) + " kg"
+                            fieldWidth: 100
+                        }
+
+                        PostField {
+                            fieldIcon: "icons/food_black_xsmall.png"
+                            fieldText: (calories < 1 ? "-": calories) + " cal"
+                            fieldWidth: 100
+                        }
+
+                        PostField {
+                            checkbox: true
+                            fieldIcon: "icons/running_black_xsmall.png"
+                            fieldChecked: run
+                            fieldWidth: 60
+                        }
+                    }
+                }
+
+                Separator {}
+
+
+                Text {
+                    width: parent.width * 0.8
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    wrapMode: Text.WordWrap
+                    padding: 20
+                    font.pixelSize: 18
+                    text: content
                 }
             }
-
-            Text {
-                text: title
-                width: parent.width * 0.8
-                anchors.margins: 20
-                anchors.horizontalCenter: parent.horizontalCenter
-                font.pointSize: 22
-                wrapMode: Text.WordWrap
-                font.weight: Font.Bold
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Image {
-                width: 35
-                height: 35
-                fillMode: Image.PreserveAspectFit
-                anchors.margins: 20
-                anchors.topMargin: 0
-                anchors.horizontalCenter: parent.horizontalCenter
-                source: "reactions/" + reaction + ".png"
-            }
-
         }
+
     }
 
     Component.onCompleted: {

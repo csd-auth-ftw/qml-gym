@@ -1,18 +1,33 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.3
+import QtQuick.Controls 1.4
 
-Rectangle {
+Row {
     property string fieldText
+    property string fieldIcon
+    property int fieldWidth: -1
+    property bool checkbox: false
+    property bool fieldChecked
 
-    width: parent.width
-    height: parent.height * 0.25
+    width: fieldWidth < 0 ? parent.width: fieldWidth
+    topPadding: 2
+    bottomPadding: 2
+    leftPadding: 4
+    rightPadding: 4
+
+    Image {
+        source: fieldIcon
+    }
 
     Text {
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 10
-        anchors.right: parent.right
-        anchors.rightMargin: 10
+        leftPadding: 4
         text: fieldText
+        visible: !checkbox ? true: false
+    }
+
+    CheckBox {
+        enabled: false
+        checked: fieldChecked
+        visible: checkbox
     }
 }

@@ -38,6 +38,11 @@ void Mediator::deletePost(int index)
     saveAll();
 }
 
+void Mediator::addPoints(int points)
+{
+    _postModel->addPoints(points);
+}
+
 QString Mediator::getWorkoutsContent()
 {
     // load cached

@@ -30,6 +30,11 @@ Window {
         PostListView{}
     }
 
+    Component {
+        id: addPostViewComponent
+        AddPostView {}
+    }
+
     /** the main view stack **/
     StackView {
         id: mainStack

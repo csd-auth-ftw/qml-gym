@@ -5,11 +5,11 @@ import QtQuick.Layouts 1.3
 ColumnLayout {
     property string reaction
     property bool selected: false
-    property int size: 60
+    property int size: 40
 
-    Layout.minimumWidth: size - 20
-    Layout.preferredWidth: size
-    Layout.minimumHeight: 2 * size
+    Layout.minimumWidth: (size >= 60) ? size - 20: 40
+    Layout.preferredWidth: (size >= 60) ? size: 60
+    Layout.minimumHeight: 80
 
     Rectangle {
         Layout.preferredWidth: size

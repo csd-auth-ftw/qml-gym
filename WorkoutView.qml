@@ -95,7 +95,6 @@ Rectangle {
 
                 HighlightedText {
                     text: "preparation"
-                    textPadding: 10
                 }
 
                 Text {
@@ -107,7 +106,6 @@ Rectangle {
 
                 HighlightedText {
                     text: "execution"
-                    textPadding: 10
                 }
 
                 Text {

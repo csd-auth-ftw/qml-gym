@@ -1,5 +1,4 @@
-import QtQuick 2.0
-import QtQuick 2.2
+import QtQuick 2.7
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Styles 1.4
@@ -9,19 +8,52 @@ Rectangle {
     id: rootRectangle
     anchors.fill: parent
 
+    property bool editing: false
+    property int postIndex
+    property string prevTitle
+    property date prevDate
+    property string prevContent
+    property string prevReaction
+    property int prevWeight
+    property int prevCalories
+    property bool prevRun
+
     property var photos : [];
+
+    function reportError(txt) {
+        alertDialog.text = txt;
+        alertDialog.open();
+
+        return false;
+    }
 
     function validateInput() {
         if (titleField.text.trim().length < 1)
-            return false;
+            return reportError("Error. Title is Empty");
 
         if (contentField.text.trim().length < 1)
-            return false;
+            return reportError("Error. Content is Empty");
 
         if (!reactionGroup.current)
-            return false;
+            return reportError("Error. Choose a reaction first");
 
         return true;
+    }
+
+    function initSelected(type) {
+        if (!editing)
+            return type === "yay" ? true: false;
+
+        return type === prevReaction ? true: false;
+    }
+
+    MessageDialog {
+        id: alertDialog
+        visible: false
+        title: "Alert"
+        text: ""
+        standardButtons: StandardButton.Ok
+        icon: StandardIcon.Warning
     }
 
     CustomToolbar {
@@ -65,6 +97,8 @@ Rectangle {
                 Column {
                     id: photosGroup
                     width: parent.width
+                    spacing: 20
+                    anchors.topMargin: 20
                     anchors.horizontalCenter: parent.horizontalCenter
 
                     FileDialog {
@@ -226,24 +260,26 @@ Rectangle {
 
                 Column {
                     id: titleGroup
+                    width: parent.width
+                    spacing: 12
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    Text {
-                        id: titleLabel
-                        anchors.horizontalCenter: parent.horizontalCenter
+                    HighlightedText {
                         text: "Title"
                     }
 
                     TextField {
                         id: titleField
-                        width: 200
-                        height: 30
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: parent.width * 0.7
                         style: TextFieldStyle {
                             padding.top: 4
                             padding.bottom: 4
                             padding.right: 20
                             padding.left: 20
                         }
+                        font.pixelSize: 24
+                        text: prevTitle
                         placeholderText: "Post title..."
                     }
                 }
@@ -260,23 +296,27 @@ Rectangle {
 
                     ReactionImage {
                         reaction: "angry"
+                        selected: initSelected("angry")
                     }
 
                     ReactionImage {
                         reaction: "sad"
+                        selected: initSelected("sad")
                     }
 
                     ReactionImage {
                         reaction: "yay"
-                        selected: true
+                        selected: initSelected("yay")
                     }
 
                     ReactionImage {
                         reaction: "haha"
+                        selected: initSelected("haha")
                     }
 
                     ReactionImage {
                         reaction: "wow"
+                        selected: initSelected("wow")
                     }
                 }
 
@@ -284,16 +324,20 @@ Rectangle {
 
                 Column {
                     id: contentGroup
+                    spacing: 12
+                    width: parent.width
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    Text{
-                        id: contentLabel
-                        anchors.horizontalCenter: parent.horizontalCenter
+                    HighlightedText {
                         text: "Content"
                     }
 
                     TextArea {
                         id: contentField
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        font.pixelSize: 18
+                        text: prevContent
+                        width: parent.width * 0.7
                     }
                 }
 
@@ -319,6 +363,7 @@ Rectangle {
 
                         TextField {
                             id: weightField
+                            text: prevWeight
                             anchors.verticalCenter: parent.verticalCenter
                         }
                     }
@@ -333,6 +378,7 @@ Rectangle {
 
                         TextField {
                             id: caloriesField
+                            text: prevCalories
                             anchors.verticalCenter: parent.verticalCenter
                         }
                     }
@@ -348,6 +394,7 @@ Rectangle {
                         CheckBox {
                             id: runCheckBox
                             anchors.verticalCenter: parent.verticalCenter
+                            checked: editing && prevRun
                         }
                     }
                 }
@@ -356,11 +403,20 @@ Rectangle {
 
                 Button {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "Add Post"
+
+                    style: ButtonStyle {
+                        label: Text {
+                            renderType: Text.NativeRendering
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                            font.pointSize: 18
+                            padding: 8
+                            color: "#333333"
+                            text: !editing ? "Add Post": "Save Changes"
+                        }
+                    }
 
                     onClicked: {
-                        console.log("add post");
-
                         if (!validateInput())
                             return;
 
@@ -372,14 +428,27 @@ Rectangle {
                         var calories = parseInt(caloriesField.text);
                         var run = runCheckBox.checked;
 
-                        console.log("check");
-                        console.log(runCheckBox.checkedState);
-                        console.log(runCheckBox.checked);
+                        if (editing) {
+                            mediator.editPost(postIndex, title, date, content, reaction, weight, calories, run, rootRectangle.photos);
+                        } else {
+                            mediator.insertPost(title, date, content, reaction, weight, calories, run, rootRectangle.photos);
+                        }
 
-                        mediator.insertPost(title, date, content, reaction, weight, calories, run, rootRectangle.photos);
                         mainStack.pop();
                     }
                 }
+            }
+        }
+    }
+
+    Component.onCompleted: {
+        if (editing) {
+            for (var i = 0; i < photos.length; i++) {
+                photosModel.append({"icon": photos[i]});
+
+                // make photo path visible and run once
+                if (i == 0)
+                    photosPathView.visible = true
             }
         }
     }

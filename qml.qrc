@@ -93,5 +93,9 @@
         <file>icons/right_black_small.png</file>
         <file>HighlightedText.qml</file>
         <file>FilterCheckBox.qml</file>
+        <file>icons/food_black_xsmall.png</file>
+        <file>icons/running_black_xsmall.png</file>
+        <file>icons/weight_black_xsmall.png</file>
+        <file>icons/photos_black_xsmall.png</file>
     </qresource>
 </RCC>
